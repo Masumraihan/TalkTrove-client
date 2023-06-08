@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../Providers/AuthProviders";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import SocialLogin from "../../Components/SignUp/SocialLogin";
+import { addUser } from "../../Api/userApi";
 
 const SignUp = () => {
   const [error, setError] = useState("");
@@ -28,6 +29,7 @@ const SignUp = () => {
     console.log(name, email, photo, password);
     createUser(email, password)
       .then((result) => {
+        addUser(name,email,photo)
         updateUserProfile(name, photo)
           .then(() => {
             navigate("/");

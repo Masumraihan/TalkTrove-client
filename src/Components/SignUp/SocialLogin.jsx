@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Providers/AuthProviders";
+import { addUser } from "../../Api/userApi";
 const SocialLogin = ({ setError }) => {
   const { googleSignIn } = useContext(AuthContext);
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         console.log(result.user);
+        const user = result.user
+        addUser(user.displayName,user.email,user.photoURL);
       })
       .catch((err) => {
         setError(err.message);

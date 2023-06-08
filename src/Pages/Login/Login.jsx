@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProviders";
 import SocialLogin from "../../Components/SignUp/SocialLogin";
+import { addUser } from "../../Api/userApi";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -22,6 +23,8 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result?.user);
+        const user = result.user
+        addUser(user.displayName,user.email,user.photoURL)
         navigate("/")
       })
       .catch((err) => {
