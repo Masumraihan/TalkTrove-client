@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import SingleClass from "../../../Components/Home/SingleClass/SingleClass";
 import Container from "../../../Components/Shared/Container";
+import { loadData } from "../../../Api/utils";
 
 const PopularClasses = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BASE_URL}/classes`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setClasses(data);
-      });
+    loadData("classes").then((data) => {
+      setClasses(data);
+    });
   }, []);
   return (
     <Container>
@@ -19,7 +17,7 @@ const PopularClasses = () => {
           Our Popular Classes
         </h1>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-7'>
-          {classes.map((singleClass) => (
+          {classes?.map((singleClass) => (
             <SingleClass key={singleClass._id} singleClass={singleClass} />
           ))}
         </div>

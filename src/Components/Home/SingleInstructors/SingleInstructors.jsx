@@ -2,7 +2,6 @@ import React from "react";
 
 const SingleInstructors = ({ instructor }) => {
   const { photo, name, email, students } = instructor;
-  console.log(students);
   return (
     <div className='card bg-base-100 shadow-xl'>
       <figure className=''>
