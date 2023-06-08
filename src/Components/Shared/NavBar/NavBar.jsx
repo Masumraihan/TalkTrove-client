@@ -5,7 +5,6 @@ import { AuthContext } from "../../../Providers/AuthProviders";
 import UserMenu from "./UserMenu";
 
 const NavBar = () => {
-  //Todo get user in AuthProvider
   const { user } = useContext(AuthContext);
 
   return (
@@ -37,12 +36,16 @@ const NavBar = () => {
                 <li>
                   <a>Home</a>
                 </li>
-                <li>
-                  <a>Instructors</a>
-                </li>
-                <li>
-                  <a>Classes</a>
-                </li>
+                <Link to='/allInstructors'>
+                  <li>
+                    <span>Instructors</span>
+                  </li>
+                </Link>
+                <Link to='/allClasses'>
+                  <li>
+                    <span>Classes</span>
+                  </li>
+                </Link>
                 {user && (
                   <li>
                     <a>Dashboard</a>

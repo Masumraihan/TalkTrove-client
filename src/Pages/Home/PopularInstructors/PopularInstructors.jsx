@@ -6,7 +6,7 @@ import { loadData } from "../../../Api/utils";
 const PopularInstructors = () => {
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
-    loadData("instructors").then((data) => {
+    loadData("instructors?top=6").then((data) => {
       setInstructors(data);
     });
   }, []);
