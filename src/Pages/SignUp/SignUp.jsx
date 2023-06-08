@@ -29,7 +29,8 @@ const SignUp = () => {
     console.log(name, email, photo, password);
     createUser(email, password)
       .then((result) => {
-        addUser(name,email,photo)
+        console.log(result.user);
+        addUser(name, email, photo);
         updateUserProfile(name, photo)
           .then(() => {
             navigate("/");

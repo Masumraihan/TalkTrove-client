@@ -2,14 +2,20 @@ import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { addUser } from "../../Api/userApi";
+import { useLocation, useNavigate } from "react-router-dom";
 const SocialLogin = ({ setError }) => {
   const { googleSignIn } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         console.log(result.user);
-        const user = result.user
-        addUser(user.displayName,user.email,user.photoURL);
+        const user = result.user;
+        addUser(user.displayName, user.email, user.photoURL);
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         setError(err.message);

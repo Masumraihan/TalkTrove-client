@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProviders";
@@ -11,7 +11,10 @@ const Login = () => {
   const [showPass, setShowPass] = useState(false);
 
   const { signIn } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  console.log(from);
 
   const {
     register,
@@ -22,7 +25,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result?.user);
-        navigate("/")
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         setError(err?.message);
@@ -49,7 +52,9 @@ const Login = () => {
                   placeholder='email'
                   className='input input-bordered'
                 />
-                {errors.email && <span className="text-red-400">This field is required</span>}
+                {errors.email && (
+                  <span className='text-red-400'>This field is required</span>
+                )}
               </div>
 
               <div className='form-control'>
@@ -80,14 +85,16 @@ const Login = () => {
                     className='input input-bordered w-full'
                   />
                 </div>
-                  {errors.password && <span className="text-red-400">This field is required</span>}
+                {errors.password && (
+                  <span className='text-red-400'>This field is required</span>
+                )}
                 <label className='label'>
                   <a href='#' className='label-text-alt link link-hover'>
                     Forgot password?
                   </a>
                 </label>
               </div>
-              
+
               {error && <p className='text-red-400'>{error}</p>}
               <div className='form-control mt-6'>
                 <button className='btn btn-primary'>Login</button>

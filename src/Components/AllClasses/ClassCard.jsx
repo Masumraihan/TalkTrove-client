@@ -1,10 +1,36 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
+import { useLocation, useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { toast } from "react-hot-toast";
 
 const ClassCard = ({ classDetails }) => {
-  const { user } = useContext(AuthContext);
-  // TODO admin or instructor can't select class button disabled
+  const [axiosSecure] = useAxiosSecure();
+  const { user, role } = useContext(AuthContext);
   const { image, instructor, price, name, seats, students, _id } = classDetails;
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log("from class card", user);
+  const handleSelectClass = () => {
+    if (!user) {
+      navigate("/login", { state: { from: location } });
+    }
+    axiosSecure
+      .post("/classes", {
+        email: user?.email,
+        name,
+        image,
+        instructor,
+        price,
+        classId: _id,
+      })
+      .then((data) => {
+        if (data.data.insertedId) {
+          toast.success("class added successfully");
+        }
+      });
+  };
+
   return (
     <div
       className={`card w-full ${
@@ -27,9 +53,8 @@ const ClassCard = ({ classDetails }) => {
           </p>
         </div>
         <button
-          disabled={
-            seats <= 0 || user?.role === "admin" || user?.role === "instructor"
-          }
+          onClick={handleSelectClass}
+          disabled={seats <= 0 || role === "admin" || role === "instructor"}
           className=' btn btn-primary'
         >
           Select Class

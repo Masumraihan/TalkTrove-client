@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Container from "../../Components/Shared/Container";
 import { loadData } from "../../Api/utils";
 import ClassCard from "../../Components/AllClasses/ClassCard";
+import Loader from "../../Components/Shared/Loader";
 
 const AllClasses = () => {
   const [allClasses, setAllClasses] = useState([]);
@@ -10,7 +11,9 @@ const AllClasses = () => {
       setAllClasses(data);
     });
   }, []);
-  console.log(allClasses);
+  if (allClasses.length <= 0) {
+    return <Loader />;
+  }
   return (
     <Container>
       <h1 className='text-4xl pb-4 text-center font-bold'>Our All Classes</h1>

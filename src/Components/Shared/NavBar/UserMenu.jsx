@@ -2,12 +2,16 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useContext } from "react";
 import placeholderImg from "../../../assets/placeholder.jpg";
 import { AuthContext } from "../../../Providers/AuthProviders";
+import { useNavigate } from "react-router-dom";
 
 function UserMenu({ user }) {
   const { logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleLogout = () => {
     logOut()
-      .then()
+      .then(() => {
+        navigate("/login");
+      })
       .catch((err) => {
         console.log(err);
       });
