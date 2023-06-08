@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import SingleClass from "../SingleClass/SingleClass";
-import Container from "../../Shared/Container";
+import SingleClass from "../../../Components/Home/SingleClass/SingleClass";
+import Container from "../../../Components/Shared/Container";
 
 const PopularClasses = () => {
   const [classes, setClasses] = useState([]);
@@ -15,8 +15,10 @@ const PopularClasses = () => {
   return (
     <Container>
       <div className='py-20'>
-        <h1 className='text-4xl pb-4 text-center font-bold'>Our Popular Classes</h1>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-7">
+        <h1 className='text-4xl pb-4 text-center font-bold'>
+          Our Popular Classes
+        </h1>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-7'>
           {classes.map((singleClass) => (
             <SingleClass key={singleClass._id} singleClass={singleClass} />
           ))}
