@@ -23,7 +23,9 @@ const ClassCard = ({ classDetails }) => {
           </p>
         </div>
         <button
-          disabled={seats <= 0 || user?.role !== "student"}
+          disabled={
+            seats <= 0 || user?.role === "admin" || user?.role === "instructor"
+          }
           className=' btn btn-primary'
         >
           Select Class

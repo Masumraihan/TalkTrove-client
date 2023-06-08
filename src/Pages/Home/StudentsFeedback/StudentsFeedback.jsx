@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { loadData } from "../../../Api/utils";
 import SingleFeedback from "../../../Components/Home/SingleFeedback/SingleFeedback";
@@ -10,7 +10,6 @@ const StudentsFeedback = () => {
       setFeedback(data);
     });
   }, []);
-  console.log(Feedback);
   return (
     <div className='py-20'>
       <h1 className='text-4xl pb-4 text-center font-bold'>

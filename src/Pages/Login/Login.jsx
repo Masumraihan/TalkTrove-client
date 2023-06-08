@@ -52,6 +52,7 @@ const Login = () => {
                   placeholder='email'
                   className='input input-bordered'
                 />
+                {errors.email && <span className="text-red-400">This field is required</span>}
               </div>
 
               <div className='form-control'>
@@ -82,13 +83,14 @@ const Login = () => {
                     className='input input-bordered w-full'
                   />
                 </div>
+                  {errors.password && <span className="text-red-400">This field is required</span>}
                 <label className='label'>
                   <a href='#' className='label-text-alt link link-hover'>
                     Forgot password?
                   </a>
                 </label>
               </div>
-              {errors.email && <span>This field is required</span>}
+              
               {error && <p className='text-red-400'>{error}</p>}
               <div className='form-control mt-6'>
                 <button className='btn btn-primary'>Login</button>

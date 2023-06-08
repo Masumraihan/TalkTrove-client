@@ -1,8 +1,9 @@
-import { Menu, Transition } from "@headlessui/react";
-import { useState, Fragment } from "react";
+import { useState } from "react";
 import { BiMenuAltLeft } from "react-icons/bi";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
+import Container from "../Components/Shared/Container";
+import { Link, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,45 +12,25 @@ const DashboardLayout = () => {
   };
   return (
     <>
-      {/*<div>
-      <div className='drawer lg:drawer-open'>
-        <input id='my-drawer' type='checkbox' className='drawer-toggle' />
-        <div className='drawer-content relative'>
-          
-          <label htmlFor='my-drawer' className='btn absolute lg:hidden z-10 left-[263px] btn-primary drawer-button'>
-            <BiMenuAltLeft size={24}/>
-          </label>
-        </div>
-        <div className='drawer-side'>
-          <label htmlFor='my-drawer' className='drawer-overlay'></label>
-          <ul className='menu p-4 w-80 h-full bg-base-200 text-base-content'>
-           
-            <li>
-              <a>Sidebar Item 1</a>
-            </li>
-            <li>
-              <a>Sidebar Item 2</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>*/}
-
       <Drawer
         open={isOpen}
         onClose={toggleDrawer}
         direction='left'
         className='border'
       >
-        <button onClick={toggleDrawer}>
-          <BiMenuAltLeft size={24} />
+        <button className='absolute z-10 right-0 top-3' onClick={toggleDrawer}>
+          <div className='p-2 hover:bg-base-300 mr-2 rounded-lg'>
+            <BiMenuAltLeft size={32} />
+          </div>
         </button>
-        <ul className='menu rounded-box'>
+        <ul className='menu menu-lg rounded-box'>
+          <Link to='/'>
+            <li>
+              <span>Home</span>
+            </li>
+          </Link>
           <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <a>Item 2</a>
+            <a>My Selected Classes</a>
           </li>
           <li>
             <a>Item 3</a>
@@ -57,7 +38,12 @@ const DashboardLayout = () => {
         </ul>
       </Drawer>
       <button className={`${isOpen && "hidden"}`} onClick={toggleDrawer}>
-        <BiMenuAltLeft size={24} />
+        <Container>
+          <div className='p-2 hover:bg-base-300 m-2 rounded-lg'>
+            <BiMenuAltLeft size={32} />
+          </div>
+          <Outlet />
+        </Container>
       </button>
     </>
   );
