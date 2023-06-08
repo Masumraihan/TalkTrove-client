@@ -5,7 +5,6 @@ export const addUser = (name, email, photo) => {
     name,
     email,
     photo,
-    role: "student",
   };
   fetch(`${import.meta.env.VITE_BASE_URL}/users/${email}`, {
     method: "PUT",

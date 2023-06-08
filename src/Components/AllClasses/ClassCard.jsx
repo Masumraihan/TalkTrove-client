@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 
 const ClassCard = ({ classDetails }) => {
@@ -6,7 +6,11 @@ const ClassCard = ({ classDetails }) => {
   // TODO admin or instructor can't select class button disabled
   const { image, instructor, price, name, seats, students, _id } = classDetails;
   return (
-    <div className='card w-full bg-base-100 shadow-xl'>
+    <div
+      className={`card w-full ${
+        seats <= 0 ? "bg-red-500 text-white" : "bg-base-100"
+      }  shadow-xl`}
+    >
       <figure className='px-10  pt-10'>
         <img src={image} alt='Shoes' className='rounded-xl h-40' />
       </figure>

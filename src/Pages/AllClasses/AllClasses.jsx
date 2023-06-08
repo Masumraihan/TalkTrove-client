@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "../../Components/Shared/Container";
 import { loadData } from "../../Api/utils";
 import ClassCard from "../../Components/AllClasses/ClassCard";

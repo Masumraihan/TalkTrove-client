@@ -8,7 +8,6 @@ import { AuthContext } from "../Providers/AuthProviders";
 
 const DashboardLayout = () => {
   const { role } = useContext(AuthContext);
-  console.log("role", role);
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
@@ -71,12 +70,12 @@ const DashboardLayout = () => {
                 <span>Home</span>
               </li>
             </Link>
-            <Link to='/dashboard/addClass'>
+            <Link to='/dashboard/manageClasses'>
               <li>
                 <span>Manage Classes</span>
               </li>
             </Link>
-            <Link to='/dashboard/myClasses'>
+            <Link to='/dashboard/manageUsers'>
               <li>
                 <span>Manage Users</span>
               </li>
