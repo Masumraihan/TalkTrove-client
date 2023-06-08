@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BiMenuAltLeft } from "react-icons/bi";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import Container from "../Components/Shared/Container";
 import { Link, Outlet } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProviders";
 
 const DashboardLayout = () => {
+  const { role } = useContext(AuthContext);
+  console.log("role", role);
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
@@ -23,28 +26,50 @@ const DashboardLayout = () => {
             <BiMenuAltLeft size={32} />
           </div>
         </button>
-        <ul className='menu menu-lg rounded-box'>
-          <Link to='/'>
-            <li>
-              <span>Home</span>
-            </li>
-          </Link>
-          <li>
-            <a>My Selected Classes</a>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul>
+        {role === "student" && (
+          <ul className='menu menu-lg rounded-box'>
+            <Link to='/'>
+              <li>
+                <span>Home</span>
+              </li>
+            </Link>
+            <Link to='/dashboard'>
+              <li>
+                <span>My Selected Classes</span>
+              </li>
+            </Link>
+            <Link to='/dashboard/myEnrolledClasses'>
+              <li>
+                <span>My Enrolled Classes</span>
+              </li>
+            </Link>
+          </ul>
+        )}
+        {role === "instructor" && (
+          <ul className='menu menu-lg rounded-box'>
+            <Link to='/'>
+              <li>
+                <span>Home</span>
+              </li>
+            </Link>
+            <Link to='/dashboard'>
+              <li>
+                <span>Add a Class</span>
+              </li>
+            </Link>
+          </ul>
+        )}
       </Drawer>
-      <button className={`${isOpen && "hidden"}`} onClick={toggleDrawer}>
-        <Container>
+      <Container>
+        <button onClick={toggleDrawer}>
           <div className='p-2 hover:bg-base-300 m-2 rounded-lg'>
             <BiMenuAltLeft size={32} />
           </div>
+        </button>
+        <div className='ml-40 p-10'>
           <Outlet />
-        </Container>
-      </button>
+        </div>
+      </Container>
     </>
   );
 };

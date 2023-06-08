@@ -23,5 +23,6 @@ export const addUser = (name, email, photo) => {
 export const getRole = async(email) => {
   const res = await fetch(`${import.meta.env.VITE_BASE_URL}/users/${email}`);
   const user = await res.json()
+  console.log("from get role",user)
   return user?.role
 };

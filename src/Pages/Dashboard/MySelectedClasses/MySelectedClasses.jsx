@@ -3,7 +3,7 @@
 const MySelectedClasses = () => {
     return (
         <div>
-            My Selected Classes
+           <h1>my selected classes</h1>
         </div>
     );
 };
