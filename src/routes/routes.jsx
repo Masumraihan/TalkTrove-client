@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import AllInstructors from "../Pages/AllInstructors/AllInstructors";
 import AllClasses from "../Pages/AllClasses/AllClasses";
+import DashboardLayout from "../Layout/DashboardLayout";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         element: <AllClasses />,
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
   },
 ]);
 export default router;
