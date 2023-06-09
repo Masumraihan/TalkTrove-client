@@ -56,7 +56,7 @@ const NavBar = () => {
               // TODO add user name using tooltip
 
               <>
-                <UserMenu />
+                <UserMenu user={user} />
               </>
             ) : (
               <Link to='/login'>

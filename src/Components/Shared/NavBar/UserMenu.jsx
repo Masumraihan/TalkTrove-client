@@ -24,7 +24,7 @@ function UserMenu({ user }) {
           <Menu.Button className='inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
             <img
               className='w-12 h-12 rounded-full'
-              src={user?.photoUrl ? user.photoUrl : placeholderImg}
+              src={user?.photoURL ? user.photoURL : placeholderImg}
               alt='profile'
             />
           </Menu.Button>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "../../Components/Shared/Container";
 import { loadData } from "../../Api/utils";
 import SingleInstructors from "../../Components/Home/SingleInstructors/SingleInstructors";
@@ -10,7 +10,6 @@ const AllInstructors = () => {
       setAllInstructors(data);
     });
   }, []);
-  console.log(allInstructors);
   return (
     <Container>
       <h1 className='text-4xl pb-4 text-center font-bold'>

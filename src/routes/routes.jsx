@@ -14,6 +14,7 @@ import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
 import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
+import InstructorRoute from "./InstructorRoute";
 
 const router = createBrowserRouter([
   {
@@ -56,10 +57,6 @@ const router = createBrowserRouter([
         element: <DashboardHome />,
       },
       {
-        path: "/dashboard",
-        element: <MySelectedClasses />,
-      },
-      {
         path: "/dashboard/mySelectedClasses",
         element: <MySelectedClasses />,
       },
@@ -69,11 +66,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/addClass",
-        element: <AddClass />,
+        element: (
+          <InstructorRoute>
+            <AddClass />
+          </InstructorRoute>
+        ),
       },
       {
         path: "/dashboard/myClasses",
-        element: <MyClasses />,
+        element: (
+          <InstructorRoute>
+            <MyClasses />,
+          </InstructorRoute>
+        ),
       },
       {
         path: "/dashboard/manageUsers",

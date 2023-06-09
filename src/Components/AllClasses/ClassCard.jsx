@@ -10,11 +10,12 @@ const ClassCard = ({ classDetails }) => {
   const { image, instructor, price, name, seats, students, _id } = classDetails;
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("from class card", user);
+  // TODO user can not select multiple classes
   const handleSelectClass = () => {
     if (!user) {
       navigate("/login", { state: { from: location } });
     }
+
     axiosSecure
       .post("/classes", {
         email: user?.email,
@@ -23,6 +24,8 @@ const ClassCard = ({ classDetails }) => {
         instructor,
         price,
         classId: _id,
+        selected_data: new Date(),
+        status: "selected",
       })
       .then((data) => {
         if (data.data.insertedId) {
@@ -57,7 +60,7 @@ const ClassCard = ({ classDetails }) => {
           disabled={seats <= 0 || role === "admin" || role === "instructor"}
           className=' btn btn-primary'
         >
-          Select Class
+          Select
         </button>
       </div>
     </div>
