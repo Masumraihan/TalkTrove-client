@@ -20,7 +20,6 @@ const AddClass = () => {
     const seats = form.seats.value;
     imageUpload(image).then((data) => {
       const image = data.data.display_url;
-      console.log(email, name);
       const classInfo = {
         className,
         image,

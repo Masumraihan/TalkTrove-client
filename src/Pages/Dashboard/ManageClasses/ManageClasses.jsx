@@ -27,7 +27,7 @@ const ManageClasses = () => {
   const updateClassStatus = (id, status) => {
     axiosSecure.patch(`/classes/${id}`, { status }).then((data) => {
       console.log(data);
-      if (data.data.modifiedCount >= 0) {
+      if (data.data.modifiedCount > 0) {
         refetch();
         toast.success(
           status === "approved"

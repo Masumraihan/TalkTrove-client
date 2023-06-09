@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 const ClassCard = ({ classDetails }) => {
   const [axiosSecure] = useAxiosSecure();
   const { user, role } = useContext(AuthContext);
-  const { image, instructor, price, name, seats, students, _id } = classDetails;
+  const { image,className, instructor, price, name, seats, students, _id } = classDetails;
   const navigate = useNavigate();
   const location = useLocation();
   // TODO user can not select multiple classes
@@ -20,6 +20,7 @@ const ClassCard = ({ classDetails }) => {
       .post("/classes", {
         email: user?.email,
         name,
+        className,
         image,
         instructor,
         price,
@@ -44,6 +45,7 @@ const ClassCard = ({ classDetails }) => {
         <img src={image} alt='Shoes' className='rounded-xl h-40' />
       </figure>
       <div className='card-body text-center'>
+        <h2 className='card-title'>{className}</h2>
         <h2 className='card-title'>{name}</h2>
         <p className='text-start text-xl font-semibold'>{instructor}</p>
         <p className='text-start text-xl font-semibold'>
