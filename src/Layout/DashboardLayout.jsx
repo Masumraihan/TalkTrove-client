@@ -8,7 +8,7 @@ import { AuthContext } from "../Providers/AuthProviders";
 
 const DashboardLayout = () => {
   const { role } = useContext(AuthContext);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
@@ -26,7 +26,7 @@ const DashboardLayout = () => {
           </div>
         </button>
         {role === "student" && (
-          <ul className='menu menu-lg rounded-box'>
+          <ul onClick={toggleDrawer} className='menu menu-lg rounded-box'>
             <Link to='/'>
               <li>
                 <span>Home</span>
@@ -45,7 +45,7 @@ const DashboardLayout = () => {
           </ul>
         )}
         {role === "instructor" && (
-          <ul className='menu menu-lg rounded-box'>
+          <ul onClick={toggleDrawer} className='menu menu-lg rounded-box'>
             <Link to='/'>
               <li>
                 <span>Home</span>
@@ -64,7 +64,7 @@ const DashboardLayout = () => {
           </ul>
         )}
         {role === "admin" && (
-          <ul className='menu menu-lg rounded-box'>
+          <ul onClick={toggleDrawer} className='menu menu-lg rounded-box'>
             <Link to='/'>
               <li>
                 <span>Home</span>
@@ -90,7 +90,7 @@ const DashboardLayout = () => {
             <BiMenuAltLeft size={32} />
           </div>
         </button>
-        <div className=' p-10'>
+        <div className='p-10'>
           <Outlet />
         </div>
       </Container>
