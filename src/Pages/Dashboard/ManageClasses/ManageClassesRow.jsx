@@ -2,9 +2,6 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
   const { email, price, name, image, className, seats, status, _id } =
     classDetails;
 
-  const handleDeny = () => {
-    openModal();
-  };
   return (
     <>
       <tr>
@@ -58,7 +55,7 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <span
-            onClick={handleDeny}
+            onClick={() => openModal()}
             className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'
           >
             <span

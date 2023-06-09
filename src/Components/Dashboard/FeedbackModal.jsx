@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
-const FeedbackModal = ({ closeModal, isOpen }) => {
+const FeedbackModal = ({ closeModal, isOpen, handleDenied }) => {
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -29,31 +29,39 @@ const FeedbackModal = ({ closeModal, isOpen }) => {
                 leaveFrom='opacity-100 scale-100'
                 leaveTo='opacity-0 scale-95'
               >
-                <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
+                <Dialog.Panel className='w-full max-w-xl transform overflow-hidden rounded-2xl bg-white px-8 py-16 text-left align-middle shadow-xl transition-all'>
                   <Dialog.Title
                     as='h3'
                     className='text-lg font-medium leading-6 text-gray-900'
                   >
                     Why you denied this class?
                   </Dialog.Title>
-                  <div className='mt-2 text-sm'>
+                  <form onSubmit={handleDenied}>
+                    <div className='mt-2 text-sm'>
+                      <textarea
+                        id='feedback'
+                        className='block rounded-md focus:violet-300 w-full h-44 px-4 py-3 text-gray-800 border border-violet-300 focus:outline-violet-500 '
+                        name='feedback'
+                      ></textarea>
+                    </div>
 
-                    <textarea
-                      id='description'
-                      className='block rounded-md focus:violet-300 w-full h-32 px-4 py-3 text-gray-800  border border-violet-300 focus:outline-violet-500 '
-                      name='description'
-                    ></textarea>
-                  </div>
-
-                  <div className='mt-4'>
-                    <button
-                      type='button'
-                      className='inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-sm font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2'
-                      onClick={closeModal}
-                    >
-                      Got it, thanks!
-                    </button>
-                  </div>
+                    <div className='mt-4 flex justify-between items-center'>
+                      <button
+                        type='button'
+                        className='inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-sm font-medium text-violet-900 hover:bg-violet-200'
+                        onClick={closeModal}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type='submit'
+                        className='inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-sm font-medium text-violet-900 hover:bg-violet-200'
+                        onClick={closeModal}
+                      >
+                        Send Feedback
+                      </button>
+                    </div>
+                  </form>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

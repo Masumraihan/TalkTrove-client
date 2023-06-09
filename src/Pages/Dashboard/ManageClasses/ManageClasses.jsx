@@ -13,7 +13,6 @@ const ManageClasses = () => {
     queryKey: ["allClasses"],
     queryFn: async () => {
       const res = await axiosSecure.get("/allClasses/admin");
-      console.log(res.data);
       return res.data;
     },
   });
@@ -39,7 +38,13 @@ const ManageClasses = () => {
     });
   };
 
-  console.log(allClasses);
+  const handleDenied = (e) => {
+    // TODO Add Feedback if admin denied the class 
+    e.preventDefault();
+    const feedback = e.target.feedback.value;
+    console.log(feedback);
+  };
+
   return (
     <>
       <h1 className='text-4xl pb-4 text-center font-bold'>
@@ -114,6 +119,7 @@ const ManageClasses = () => {
                   openModal={openModal}
                   closeModal={closeModal}
                   isOpen={isOpen}
+                  handleDenied={handleDenied}
                 />
               </div>
             </div>
