@@ -107,7 +107,7 @@ const Login = () => {
                 </Link>
               </p>
               <div className='px-9'>
-                <SocialLogin />
+                <SocialLogin setError={setError} />
               </div>
             </div>
           </div>

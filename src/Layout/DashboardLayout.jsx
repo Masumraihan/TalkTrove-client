@@ -90,7 +90,7 @@ const DashboardLayout = () => {
             <BiMenuAltLeft size={32} />
           </div>
         </button>
-        <div className='ml-40 p-10'>
+        <div className='lg:ml-40 p-10'>
           <Outlet />
         </div>
       </Container>
