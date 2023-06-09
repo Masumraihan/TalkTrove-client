@@ -42,7 +42,8 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
           </span>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-          <span
+          <button
+            disabled={status === "approved" || status === "denied"}
             onClick={() => updateClassStatus(_id, "approved")}
             className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'
           >
@@ -51,10 +52,11 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
               className='absolute inset-0 bg-violet-300 opacity-50 rounded-full'
             ></span>
             <span className='relative'>Approved</span>
-          </span>
+          </button>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-          <span
+          <button
+            disabled={status === "approved" || status === "denied"}
             onClick={() => openModal()}
             className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'
           >
@@ -63,7 +65,7 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
               className='absolute inset-0 bg-violet-300 opacity-50 rounded-full'
             ></span>
             <span className='relative'>Deny</span>
-          </span>
+          </button>
         </td>
       </tr>
     </>

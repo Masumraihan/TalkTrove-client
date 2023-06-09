@@ -48,7 +48,7 @@ const ManageClasses = () => {
   return (
     <>
       <h1 className='text-4xl pb-4 text-center font-bold'>
-        Your Selected Classes
+        Manage Classes
       </h1>
       <div>
         <div className='container mx-auto px-4 sm:px-8'>
