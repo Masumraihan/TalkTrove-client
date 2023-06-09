@@ -4,7 +4,6 @@ import useInstructor from "../hooks/useInstructor";
 
 const InstructorRoute = ({children}) => {
   const [isInstructor,isInstructorLoading] = useInstructor();
-  console.log(isInstructor);
   const location = useLocation();
 
   if (isInstructorLoading) {

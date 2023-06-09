@@ -14,7 +14,6 @@ const useInstructor = () => {
       return res.data?.instructor;
     },
   });
-  console.log(isInstructor);
   return [isInstructor, isInstructorLoading];
 };
 export default useInstructor;

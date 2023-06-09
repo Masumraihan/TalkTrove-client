@@ -1,16 +1,19 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
+import {SyncLoader} from "react-spinners"
 
-const AddClassForm = () => {
-    const {user} = useContext(AuthContext)
 
-    const handleSubmit = (e) => {
+const AddClassForm = ({
+  handleSubmit,
+  uploadButtonText,
+  handleImageChange,
+  loading,
+}) => {
+  const { user } = useContext(AuthContext);
 
-    }
-    
   return (
     <div className='w-full py-10 flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50'>
-      <form className="w-full md:w-1/2">
+      <form onSubmit={handleSubmit} className='w-full md:w-1/2'>
         <div className='grid gap-10'>
           <div className='space-y-6'>
             <div className='space-y-1 text-sm'>
@@ -19,7 +22,7 @@ const AddClassForm = () => {
               </label>
               <input
                 className='w-full px-4 py-3 text-gray-800 border border-violet-300 focus:outline-violet-500 rounded-md '
-                name='ClassName'
+                name='className'
                 id='className'
                 type='text'
                 placeholder='Class Name'
@@ -33,6 +36,7 @@ const AddClassForm = () => {
                 <div className='flex flex-col w-max mx-auto text-center'>
                   <label>
                     <input
+                      onChange={(e) => handleImageChange(e.target.files[0])}
                       className='text-sm cursor-pointer w-36 hidden'
                       type='file'
                       name='image'
@@ -40,8 +44,8 @@ const AddClassForm = () => {
                       accept='image/*'
                       hidden
                     />
-                    <div className='bg-violet-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-violet-500'>
-                      Upload Image
+                    <div className='bg-violet-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-2 px-3 hover:bg-violet-500'>
+                      {uploadButtonText}
                     </div>
                   </label>
                 </div>
@@ -58,6 +62,7 @@ const AddClassForm = () => {
                 type='text'
                 value={user?.email}
                 required
+                readOnly
               />
             </div>
             <div className='space-y-1 text-sm'>
@@ -71,6 +76,7 @@ const AddClassForm = () => {
                 type='text'
                 value={user?.displayName}
                 required
+                readOnly
               />
             </div>
             <div className='grid md:grid-cols-2 gap-2'>
@@ -109,12 +115,8 @@ const AddClassForm = () => {
           type='submit'
           className='w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-violet-500'
         >
-          {/*{loading ? (
-            <TbFidgetSpinner className='m-auto animate-spin' size={24} />
-          ) : (
-            'Save & Continue'
-          )}*/}
-          Add Class
+          {loading ? <SyncLoader color='violet' /> : "Add Class"}
+          
         </button>
       </form>
     </div>

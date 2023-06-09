@@ -8,7 +8,7 @@ import { AuthContext } from "../Providers/AuthProviders";
 
 const DashboardLayout = () => {
   const { role } = useContext(AuthContext);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
@@ -90,7 +90,7 @@ const DashboardLayout = () => {
             <BiMenuAltLeft size={32} />
           </div>
         </button>
-        <div className='lg:ml-40 p-10'>
+        <div className=' p-10'>
           <Outlet />
         </div>
       </Container>
