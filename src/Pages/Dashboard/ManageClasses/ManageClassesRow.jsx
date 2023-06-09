@@ -49,7 +49,7 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
           >
             <span
               aria-hidden='true'
-              className='absolute inset-0 bg-violet-300 opacity-50 rounded-full'
+              className='absolute inset-0 bg-green-300 opacity-50 rounded-full'
             ></span>
             <span className='relative'>Approved</span>
           </button>
@@ -62,7 +62,7 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
           >
             <span
               aria-hidden='true'
-              className='absolute inset-0 bg-violet-300 opacity-50 rounded-full'
+              className='absolute inset-0 bg-red-300 opacity-50 rounded-full'
             ></span>
             <span className='relative'>Deny</span>
           </button>

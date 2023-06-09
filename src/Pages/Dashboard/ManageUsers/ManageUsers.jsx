@@ -1,16 +1,29 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import ManageUsersRow from "./ManageUsersRow";
+import { toast } from "react-hot-toast";
 
 const ManageUsers = () => {
   const [axiosSecure] = useAxiosSecure();
-  const { data: users = [] } = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
+      console.log(res);
       return res.data;
     },
   });
+
+  const updateUserRole = (id, role) => {
+    axiosSecure.patch(`/users/${id}`, { role }).then((data) => {
+      console.log(data.data);
+      if (data.data.modifiedCount >= 0) {
+        refetch();
+        toast.success("User Role Updated Successfully");
+      }
+    });
+  };
+
   return (
     <>
       <h1 className='text-4xl pb-4 text-center font-bold'>Manage Users</h1>
@@ -51,7 +64,11 @@ const ManageUsers = () => {
                 </thead>
                 <tbody>
                   {users.map((user) => (
-                    <ManageUsersRow key={user._id} user={user} />
+                    <ManageUsersRow
+                      key={user._id}
+                      user={user}
+                      updateUserRole={updateUserRole}
+                    />
                   ))}
                 </tbody>
               </table>

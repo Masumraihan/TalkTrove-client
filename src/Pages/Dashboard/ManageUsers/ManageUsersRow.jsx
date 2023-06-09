@@ -1,5 +1,5 @@
-const ManageUsersRow = ({ user }) => {
-  const { name, email, photo, role } = user;
+const ManageUsersRow = ({ user, updateUserRole }) => {
+  const { name, email, photo, role, _id } = user;
   return (
     <tr>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -15,25 +15,42 @@ const ManageUsersRow = ({ user }) => {
           </div>
         </div>
       </td>
-      
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>{role}</p>
-      </td>
 
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <button className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
+        <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
           <span
             aria-hidden='true'
-            className='absolute inset-0 bg-violet-300 opacity-50 rounded-full'
+            className={`absolute inset-0 ${
+              role === "admin" && "bg-green-300"
+            } ${role === "instructor" && "bg-red-300"} ${
+              role === "student" && "bg-violet-300"
+            }  opacity-50 rounded-full`}
+          ></span>
+          <span className='relative'>{role}</span>
+        </span>
+      </td>
+      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+        <button
+          disabled={role === "admin"}
+          onClick={() => updateUserRole(_id, "admin")}
+          className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'
+        >
+          <span
+            aria-hidden='true'
+            className='absolute inset-0 bg-green-300 opacity-50 rounded-full'
           ></span>
           <span className='relative'>Admin</span>
         </button>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <button className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
+        <button
+          disabled={role === "instructor"}
+          onClick={() => updateUserRole(_id, "instructor")}
+          className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'
+        >
           <span
             aria-hidden='true'
-            className='absolute inset-0 bg-violet-300 opacity-50 rounded-full'
+            className='absolute inset-0 bg-red-300 opacity-50 rounded-full'
           ></span>
           <span className='relative'>Instructor</span>
         </button>
