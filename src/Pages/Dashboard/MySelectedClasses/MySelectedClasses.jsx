@@ -17,6 +17,10 @@ const MySelectedClasses = () => {
     },
   });
 
+  const handlePayment = (id) => {
+    console.log(id);
+  } 
+
   const handleDelete = (id) => {
     axiosSecure.delete(`/classes/${id}`).then((data) => {
       console.log(data);
@@ -27,7 +31,6 @@ const MySelectedClasses = () => {
     });
   };
 
-  console.log(selectedClasses);
   if (loader) {
     return <Loader />;
   }
@@ -87,6 +90,12 @@ const MySelectedClasses = () => {
                             scope='col'
                             className='px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal'
                           >
+                            Payment
+                          </th>
+                          <th
+                            scope='col'
+                            className='px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal'
+                          >
                             Delete
                           </th>
                         </tr>
@@ -97,6 +106,7 @@ const MySelectedClasses = () => {
                             key={classDetails._id}
                             classDetails={classDetails}
                             handleDelete={handleDelete}
+                            handlePayment={handlePayment}
                           />
                         ))}
                       </tbody>

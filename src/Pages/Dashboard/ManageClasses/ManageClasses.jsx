@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const ManageClasses = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [classId, setClassId] = useState("");
 
   const [axiosSecure] = useAxiosSecure();
   const { data: allClasses = [], refetch } = useQuery({
@@ -20,7 +21,8 @@ const ManageClasses = () => {
     setIsOpen(false);
   }
 
-  function openModal() {
+  function openModal(id) {
+    setClassId(id);
     setIsOpen(true);
   }
 
@@ -38,12 +40,19 @@ const ManageClasses = () => {
     });
   };
 
-  const handleDenied = (e) => {
+  const handleFeedback = (e) => {
     // TODO Add Feedback if admin denied the class
     e.preventDefault();
     const feedback = e.target.feedback.value;
-    console.log(feedback);
-    closeModal()
+    console.log(classId);
+    axiosSecure
+      .patch(`/classes/admin/${classId}`, { feedback })
+      .then((data) => {
+        if (data.data.modifiedCount > 0) {
+          closeModal();
+          toast.success("Thank you for your feedback");
+        }
+      });
   };
 
   return (
@@ -101,6 +110,12 @@ const ManageClasses = () => {
                       >
                         Deny
                       </th>
+                      <th
+                        scope='col'
+                        className='px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal'
+                      >
+                        Feed Back
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -118,7 +133,7 @@ const ManageClasses = () => {
                   openModal={openModal}
                   closeModal={closeModal}
                   isOpen={isOpen}
-                  handleDenied={handleDenied}
+                  handleFeedback={handleFeedback}
                 />
               </div>
             </div>

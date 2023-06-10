@@ -33,7 +33,9 @@ const ManageUsersRow = ({ user, updateUserRole }) => {
         <button
           disabled={role === "admin"}
           onClick={() => updateUserRole(_id, "admin")}
-          className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'
+          className={`relative ${
+            role === "admin" ? "cursor-not-allowed" : "cursor-pointer "
+          } inline-block px-3 py-1 font-semibold text-green-900 leading-tight`}
         >
           <span
             aria-hidden='true'
@@ -46,7 +48,9 @@ const ManageUsersRow = ({ user, updateUserRole }) => {
         <button
           disabled={role === "instructor"}
           onClick={() => updateUserRole(_id, "instructor")}
-          className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'
+          className={`relative ${
+            role === "instructor" ? "cursor-not-allowed" : "cursor-pointer "
+          } cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight`}
         >
           <span
             aria-hidden='true'

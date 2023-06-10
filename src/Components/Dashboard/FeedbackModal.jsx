@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
-const FeedbackModal = ({ closeModal, isOpen, handleDenied }) => {
+const FeedbackModal = ({ closeModal, isOpen, handleFeedback }) => {
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -34,9 +34,9 @@ const FeedbackModal = ({ closeModal, isOpen, handleDenied }) => {
                     as='h3'
                     className='text-lg font-medium leading-6 text-gray-900'
                   >
-                    Why you denied this class?
+                    Why you want to denied this class?
                   </Dialog.Title>
-                  <form onSubmit={handleDenied}>
+                  <form onSubmit={handleFeedback}>
                     <div className='mt-2 text-sm'>
                       <textarea
                         required

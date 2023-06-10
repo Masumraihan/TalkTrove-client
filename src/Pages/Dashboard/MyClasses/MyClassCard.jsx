@@ -1,5 +1,14 @@
 const MyClassCard = ({ classDetails }) => {
-  const { className, image, status, enrolledStudents } = classDetails;
+  const {
+    className,
+    image,
+    status,
+    enrolledStudents,
+    feedback = "",
+  } = classDetails;
+  if (feedback) {
+    console.log(feedback);
+  }
   return (
     <div className='card w-full bg-base-100 shadow-xl'>
       <figure>
@@ -8,7 +17,13 @@ const MyClassCard = ({ classDetails }) => {
       <div className='card-body space-y-3'>
         <h2 className='card-title'>
           {className}
-          <div className='badge badge-accent text-white p-3'>{status}</div>
+          <div
+            className={`badge ${status === "approved" && "badge-accent"} ${
+              status === "denied" && " badge-warning"
+            } ${status === "pending" && "badge-info"}  text-white p-3`}
+          >
+            {status}
+          </div>
         </h2>
         <div className='card-actions justify-start items-center'>
           <div>Enrolled Students: </div>

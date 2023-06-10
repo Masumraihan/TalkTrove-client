@@ -1,3 +1,5 @@
+import { IoOpenOutline } from "react-icons/io5";
+
 const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
   const { email, price, name, image, className, seats, status, _id } =
     classDetails;
@@ -53,7 +55,7 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
           >
             <span
               aria-hidden='true'
-              className='absolute inset-0 bg-green-300 opacity-50 rounded-full'
+              className='absolute inset-0 shadow-md bg-green-300 opacity-50 rounded-full'
             ></span>
             <span className='relative'>Approved</span>
           </button>
@@ -61,7 +63,7 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <button
             disabled={status === "approved" || status === "denied"}
-            onClick={() => openModal()}
+            onClick={() => updateClassStatus(_id, "denied")}
             className={`relative ${
               status === "approved" || status === "denied"
                 ? "cursor-not-allowed"
@@ -70,9 +72,18 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
           >
             <span
               aria-hidden='true'
-              className='absolute inset-0 bg-red-300 opacity-50 rounded-full'
+              className='absolute inset-0 shadow-md bg-red-300 opacity-50 rounded-full'
             ></span>
             <span className='relative'>Deny</span>
+          </button>
+        </td>
+        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+          <button
+            onClick={() => openModal(_id)}
+            className='w-full flex gap-2 justify-center items-center p-2 text-center font-medium text-white transition duration-200 rounded shadow-md bg-violet-500'
+          >
+            Send Feedback
+            <IoOpenOutline size={26} />
           </button>
         </td>
       </tr>
