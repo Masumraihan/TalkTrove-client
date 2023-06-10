@@ -1,13 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import Loader from "../../../Components/Shared/Loader";
 import SelectedClassRow from "./SelectedClassRow";
 import { toast } from "react-hot-toast";
+import PaymentModal from "../../../Components/Dashboard/PaymentModal";
 
 const MySelectedClasses = () => {
   const [axiosSecure] = useAxiosSecure();
+  const [isOpen, setIsOpen] = useState(false);
   const { user, loader } = useContext(AuthContext);
   const { data: selectedClasses = [], refetch } = useQuery({
     queryKey: ["selectedClasses", user.email],
@@ -18,8 +20,9 @@ const MySelectedClasses = () => {
   });
 
   const handlePayment = (id) => {
+    openModal();
     console.log(id);
-  } 
+  };
 
   const handleDelete = (id) => {
     axiosSecure.delete(`/classes/${id}`).then((data) => {
@@ -30,6 +33,14 @@ const MySelectedClasses = () => {
       }
     });
   };
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
 
   if (loader) {
     return <Loader />;
@@ -111,6 +122,7 @@ const MySelectedClasses = () => {
                         ))}
                       </tbody>
                     </table>
+                    <PaymentModal isOpen={isOpen} closeModal={closeModal} />
                   </div>
                 </div>
               </div>

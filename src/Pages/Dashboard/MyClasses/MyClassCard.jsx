@@ -1,4 +1,16 @@
+import { useState } from "react";
+import ShowFeedbackModal from "../../../Components/Dashboard/ShowFeedbackModal";
+
 const MyClassCard = ({ classDetails }) => {
+  let [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
   const {
     className,
     image,
@@ -32,7 +44,10 @@ const MyClassCard = ({ classDetails }) => {
           </div>
         </div>
         <div className='card-actions justify-between items-center'>
-          <button className='btn-sm mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-violet-500'>
+          <button
+            onClick={openModal}
+            className='btn-sm mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-violet-500'
+          >
             Feedback
           </button>
           <button className='btn-sm mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-violet-500'>
@@ -40,6 +55,13 @@ const MyClassCard = ({ classDetails }) => {
           </button>
         </div>
       </div>
+      <>
+        <ShowFeedbackModal
+          isOpen={isOpen}
+          closeModal={closeModal}
+          feedback={feedback}
+        />
+      </>
     </div>
   );
 };
