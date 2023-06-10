@@ -27,6 +27,7 @@ function UserMenu({ user }) {
                 className='w-12 h-12 rounded-full'
                 src={user?.photoURL ? user.photoURL : placeholderImg}
                 alt='profile'
+                referrerPolicy='no-referrer'
               />
             </div>
           </Menu.Button>

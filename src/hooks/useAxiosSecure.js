@@ -26,6 +26,7 @@ const useAxiosSecure = () => {
           err.response.status === 403
         ) {
           await logOut();
+          console.log("logout");
           navigate("/login");
         }
         return Promise.reject(err);

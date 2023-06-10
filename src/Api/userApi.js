@@ -1,5 +1,3 @@
-
-
 export const addUser = (name, email, photo) => {
   const currentUser = {
     name,
@@ -19,8 +17,8 @@ export const addUser = (name, email, photo) => {
     });
 };
 
-export const getRole = async(email) => {
+export const getRole = async (email) => {
   const res = await fetch(`${import.meta.env.VITE_BASE_URL}/users/${email}`);
-  const user = await res.json()
-  return user?.role
+  const user = await res.json();
+  return user?.role;
 };
