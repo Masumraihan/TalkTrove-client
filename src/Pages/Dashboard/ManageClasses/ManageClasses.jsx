@@ -39,17 +39,16 @@ const ManageClasses = () => {
   };
 
   const handleDenied = (e) => {
-    // TODO Add Feedback if admin denied the class 
+    // TODO Add Feedback if admin denied the class
     e.preventDefault();
     const feedback = e.target.feedback.value;
     console.log(feedback);
+    closeModal()
   };
 
   return (
     <>
-      <h1 className='text-4xl pb-4 text-center font-bold'>
-        Manage Classes
-      </h1>
+      <h1 className='text-4xl pb-4 text-center font-bold'>Manage Classes</h1>
       <div>
         <div className='container mx-auto px-4 sm:px-8'>
           <div className='py-4'>

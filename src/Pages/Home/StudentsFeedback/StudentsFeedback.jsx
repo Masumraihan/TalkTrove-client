@@ -16,7 +16,7 @@ const StudentsFeedback = () => {
         Our Students Feedback
       </h1>
       <Marquee speed={100} pauseOnHover gradient>
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-7'>
+        <div className='grid grid-cols-3 gap-7'>
           {Feedback.map((fb) => (
             <SingleFeedback key={fb._id} fb={fb} />
           ))}

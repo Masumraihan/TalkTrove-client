@@ -21,8 +21,8 @@ function UserMenu({ user }) {
     <div className=' top-16 w-56 text-right'>
       <Menu as='div' className='relative inline-block text-left'>
         <div>
-          <Menu.Button className='inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
-            <div className='tooltip tooltip-bottom' data-tip={user.displayName}>
+          <Menu.Button className='inline-flex w-full justify-center rounded-full font-medium text-white hover:ring-2 ring-violet-200 transition-all hover:border-1'>
+            <div className='tooltip tooltip-left' data-tip={user.displayName}>
               <img
                 className='w-12 h-12 rounded-full'
                 src={user?.photoURL ? user.photoURL : placeholderImg}

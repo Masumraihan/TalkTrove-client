@@ -39,6 +39,7 @@ const FeedbackModal = ({ closeModal, isOpen, handleDenied }) => {
                   <form onSubmit={handleDenied}>
                     <div className='mt-2 text-sm'>
                       <textarea
+                        required
                         id='feedback'
                         className='block rounded-md focus:violet-300 w-full h-44 px-4 py-3 text-gray-800 border border-violet-300 focus:outline-violet-500 '
                         name='feedback'
@@ -56,7 +57,6 @@ const FeedbackModal = ({ closeModal, isOpen, handleDenied }) => {
                       <button
                         type='submit'
                         className='inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-sm font-medium text-violet-900 hover:bg-violet-200'
-                        onClick={closeModal}
                       >
                         Send Feedback
                       </button>

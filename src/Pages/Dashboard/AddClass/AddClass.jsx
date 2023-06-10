@@ -3,11 +3,13 @@ import AddClassForm from "../../../Components/Dashboard/AddClassForm";
 import { imageUpload } from "../../../Api/utils";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddClass = () => {
   const [axiosSecure] = useAxiosSecure();
   const [loading, setLoading] = useState(false);
   const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
+  const navigate = useNavigate()
   const handleSubmit = (e) => {
     setLoading(true);
     e.preventDefault();
@@ -35,6 +37,7 @@ const AddClass = () => {
         console.log(data);
         if (data.data.insertedId) {
           toast.success("Your Class added successfully");
+          navigate("/dashboard/myClasses")
           setLoading(false);
         }
       });
