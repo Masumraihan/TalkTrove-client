@@ -3,6 +3,8 @@ import "./CheckoutForm.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 const CheckoutForm = ({ closeModal, classInfo }) => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
@@ -10,6 +12,7 @@ const CheckoutForm = ({ closeModal, classInfo }) => {
   const elements = useElements();
   const { user } = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
+  const navigate = useNavigate();
 
   // get client secret from server
   useEffect(() => {
@@ -17,11 +20,10 @@ const CheckoutForm = ({ closeModal, classInfo }) => {
       axiosSecure
         .post("/create-payment-intent", { price: classInfo.price })
         .then((data) => {
-          console.log(data.data);
           setClientSecret(data.data.clientSecret);
         });
     }
-  }, [classInfo, axiosSecure]);
+  }, []);
 
   const handleSubmit = async (event) => {
     // Block native form submission.
@@ -66,6 +68,30 @@ const CheckoutForm = ({ closeModal, classInfo }) => {
           },
         },
       });
+
+    if (confirmPaymentError) {
+      setError(confirmPaymentError.message);
+      console.log("[error]", confirmPaymentError);
+    } else {
+      setError("");
+      console.log("[paymentIntent]", paymentIntent);
+      const paymentInfo = {
+        ...classInfo,
+        transactionId: paymentIntent.id,
+        date: new Date(),
+      };
+      if (paymentIntent.status === "succeeded") {
+        //console.log(paymentInfo);
+        axiosSecure
+          .post(`/enroll/${classInfo.classId}`, paymentInfo)
+          .then((data) => {
+            if (data.data.modifiedCount > 0) {
+              toast.success("Your payment successful");
+              navigate("/dashboard/myEnrolledClasses");
+            }
+          });
+      }
+    }
   };
 
   return (

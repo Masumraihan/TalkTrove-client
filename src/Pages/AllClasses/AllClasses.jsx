@@ -11,7 +11,6 @@ const AllClasses = () => {
   useEffect(() => {
     loadData("allClasses").then((data) => {
       setAllClasses(data);
-      console.log(data);
     });
   }, []);
   if (loader) {
