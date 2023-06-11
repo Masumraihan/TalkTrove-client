@@ -23,7 +23,7 @@ const SelectedClassRow = ({ classDetails, handleDelete, handlePayment }) => {
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <span
-          onClick={() => handlePayment(_id)}
+          onClick={() => handlePayment(classDetails)}
           className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'
         >
           <span

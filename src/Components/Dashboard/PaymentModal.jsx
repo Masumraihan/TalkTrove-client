@@ -4,9 +4,8 @@ import CheckoutForm from "./CheckoutFrom";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe(`${import.meta.env.VITE_Payment_Gateway_PK}`);
-const PaymentModal = ({ isOpen, closeModal }) => {
-  console.log(import.meta.env.VITE_Payment_Gateway_PK);
+const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
+const PaymentModal = ({ isOpen, closeModal, classInfo }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={closeModal}>
@@ -36,33 +35,30 @@ const PaymentModal = ({ isOpen, closeModal }) => {
               <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
                 <Dialog.Title
                   as='h3'
-                  className='text-lg font-medium leading-6 text-gray-900'
+                  className='font-medium leading-6 text-gray-900'
                 >
-                  Confirm Your Payment
-                </Dialog.Title>
-                <form>
+                  <p className="text-xl"> Confirm Your Payment</p>
                   <div className='mt-2'>
-                    <Elements>
-                      <CheckoutForm stripe={stripePromise} />
+                    <p className='text-md text-gray-500'>
+                      Class: {classInfo.className}
+                    </p>
+                  </div>
+                  <div className='mt-2'>
+                    <p className='text-md text-gray-500'>
+                      Instructor: {classInfo.name}
+                    </p>
+                  </div>
+                </Dialog.Title>
+                <div>
+                  <div className='mt-2'>
+                    <Elements stripe={stripePromise}>
+                      <CheckoutForm
+                        closeModal={closeModal}
+                        classInfo={classInfo}
+                      />
                     </Elements>
                   </div>
-
-                  <div className='mt-4 flex justify-between items-center'>
-                    <button
-                      type='button'
-                      className='inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-sm font-medium text-violet-900 hover:bg-violet-200'
-                      onClick={closeModal}
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type='submit'
-                      className='inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-violet-900 hover:bg-green-200'
-                    >
-                      Pay
-                    </button>
-                  </div>
-                </form>
+                </div>
               </Dialog.Panel>
             </Transition.Child>
           </div>

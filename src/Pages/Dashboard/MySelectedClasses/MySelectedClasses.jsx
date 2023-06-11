@@ -10,18 +10,19 @@ import PaymentModal from "../../../Components/Dashboard/PaymentModal";
 const MySelectedClasses = () => {
   const [axiosSecure] = useAxiosSecure();
   const [isOpen, setIsOpen] = useState(false);
+  const [classInfo, setClassInfo] = useState({});
   const { user, loader } = useContext(AuthContext);
   const { data: selectedClasses = [], refetch } = useQuery({
-    queryKey: ["selectedClasses", user.email],
+    queryKey: ["selectedClasses"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/classes/${user?.email}`);
       return res.data;
     },
   });
 
-  const handlePayment = (id) => {
+  const handlePayment = (paymentClassInfo) => {
     openModal();
-    console.log(id);
+    setClassInfo(paymentClassInfo);
   };
 
   const handleDelete = (id) => {
@@ -122,7 +123,7 @@ const MySelectedClasses = () => {
                         ))}
                       </tbody>
                     </table>
-                    <PaymentModal isOpen={isOpen} closeModal={closeModal} />
+                    <PaymentModal classInfo={classInfo} isOpen={isOpen} closeModal={closeModal} />
                   </div>
                 </div>
               </div>
