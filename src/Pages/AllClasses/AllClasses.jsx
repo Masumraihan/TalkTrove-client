@@ -4,6 +4,7 @@ import { loadData } from "../../Api/utils";
 import ClassCard from "../../Components/AllClasses/ClassCard";
 import Loader from "../../Components/Shared/Loader";
 import { AuthContext } from "../../Providers/AuthProviders";
+import { Helmet } from "react-helmet-async";
 
 const AllClasses = () => {
   const { loader } = useContext(AuthContext);
@@ -18,6 +19,9 @@ const AllClasses = () => {
   }
   return (
     <Container>
+       <Helmet>
+        <title>TalkTrove | All-Classes</title>
+      </Helmet>
       {allClasses.length <= 0 ? (
         <h1 className='text-4xl pb-4 text-center font-bold'>
           No Class Available

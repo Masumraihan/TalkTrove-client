@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Container from "../../Components/Shared/Container";
 import { loadData } from "../../Api/utils";
 import InstructorCard from "./InstructorCard";
+import { Helmet } from "react-helmet-async";
 
 const AllInstructors = () => {
   const [allInstructors, setAllInstructors] = useState([]);
@@ -12,6 +13,9 @@ const AllInstructors = () => {
   }, []);
   return (
     <Container>
+      <Helmet>
+        <title>TalkTrove | All-Instructors</title>
+      </Helmet>
       <h1 className='text-4xl pb-4 text-center font-bold'>
         Our All Instructors
       </h1>

@@ -61,7 +61,6 @@ const Login = () => {
                   <span className='label-text'>Password</span>
                 </label>
                 <div className='relative'>
-                  {/*// TODO get eye icon should be a component for password and*/}
                   {!showPass ? (
                     <FaEye
                       onClick={() => setShowPass(!showPass)}

@@ -6,6 +6,10 @@ import Loader from "../../../Components/Shared/Loader";
 import SelectedClassRow from "./SelectedClassRow";
 import { toast } from "react-hot-toast";
 import PaymentModal from "../../../Components/Dashboard/PaymentModal";
+import { Link } from "react-router-dom";
+import Button from "../../../Components/Shared/Button/Button";
+import { BsArrowLeft } from "react-icons/bs";
+import { Helmet } from "react-helmet-async";
 
 const MySelectedClasses = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -49,11 +53,23 @@ const MySelectedClasses = () => {
 
   return (
     <div>
+       <Helmet>
+        <title>TalkTrove | Dashboard | My-Selected-Class</title>
+      </Helmet>
       {selectedClasses.length === 0 ? (
-        // TODO add a link button to get all classes page
-        <h1 className='text-4xl pb-4 text-center font-bold'>
-          Please Select Class
-        </h1>
+        <>
+          <div className='flex items-center justify-center'>
+            <Link to='/dashboard/addClasses'>
+              <Button>
+                <BsArrowLeft size={26} />
+                Home Page
+              </Button>
+            </Link>
+          </div>
+          <h1 className='text-3xl font-bold text-center mt-5'>
+            Please Select Your Class
+          </h1>
+        </>
       ) : (
         <>
           <h1 className='text-4xl pb-4 text-center font-bold'>
@@ -123,7 +139,11 @@ const MySelectedClasses = () => {
                         ))}
                       </tbody>
                     </table>
-                    <PaymentModal classInfo={classInfo} isOpen={isOpen} closeModal={closeModal} />
+                    <PaymentModal
+                      classInfo={classInfo}
+                      isOpen={isOpen}
+                      closeModal={closeModal}
+                    />
                   </div>
                 </div>
               </div>

@@ -1,8 +1,10 @@
+import { Zoom } from "react-awesome-reveal";
+
 const SingleClass = ({ singleClass }) => {
   const { image, className, price, name, seats, enrolledStudents } =
     singleClass;
   return (
-    <>
+    <Zoom>
       <div className='hero rounded-xl py-8 hover:shadow-lg transition-shadow bg-base-200'>
         <div className='hero-content gap-4 flex-col lg:flex-row'>
           <img
@@ -24,7 +26,7 @@ const SingleClass = ({ singleClass }) => {
           </div>
         </div>
       </div>
-    </>
+    </Zoom>
   );
 };
 

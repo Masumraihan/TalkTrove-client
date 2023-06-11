@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import UserMenu from "./UserMenu";
 import { BiMenuAltLeft } from "react-icons/bi";
-import Framer1 from "../Framer1";
 import { motion } from "framer-motion";
+import { Bounce } from "react-awesome-reveal";
 
 const NavBar = () => {
   const { user } = useContext(AuthContext);
@@ -25,7 +25,7 @@ const NavBar = () => {
                 }}
               >
                 <label tabIndex={0} className='btn btn-ghost btn-square'>
-                  <BiMenuAltLeft color="" size={32} />
+                  <BiMenuAltLeft color='' size={32} />
                 </label>
               </motion.div>
               <ul
@@ -59,13 +59,11 @@ const NavBar = () => {
           </div>
           <div className='navbar-center'>
             <Link to='/' className='btn btn-ghost normal-case text-xl'>
-              <Framer1>TalkTrove</Framer1>
+              <Bounce>TalkTrove</Bounce>
             </Link>
           </div>
           <div className='navbar-end'>
             {user ? (
-              // TODO add user name using tooltip
-
               <>
                 <UserMenu user={user} />
               </>

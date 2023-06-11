@@ -4,6 +4,7 @@ import { imageUpload } from "../../../Api/utils";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AddClass = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -51,6 +52,9 @@ const AddClass = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>TalkTrove | Dashboard | Add-Class</title>
+      </Helmet>
       <h1 className='text-4xl pb-4 text-center font-bold'>Add a Class</h1>
       <AddClassForm
         handleSubmit={handleSubmit}

@@ -1,11 +1,12 @@
+import { Slide } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <>
+    <Slide direction='up'>
       <footer className='footer p-10 bg-base-200 text-base-content'>
         <div className='text-center'>
-          <Link className="mx-auto" to='/'>
+          <Link className='mx-auto' to='/'>
             <button className='btn text-lg btn-ghost'>TalkTrove</button>
           </Link>
           <p>
@@ -35,7 +36,7 @@ const Footer = () => {
           <a className='link link-hover'>Cookie policy</a>
         </div>
       </footer>
-    </>
+    </Slide>
   );
 };
 

@@ -29,7 +29,7 @@ const MyClassCard = ({ classDetails,refetch }) => {
   } = classDetails;
 
   return (
-    <div className='card w-full bg-base-100 shadow-xl'>
+    <div className='card w-full bg-base-100 hover:shadow-xl'>
       <figure>
         <img className='h-[200px] w-full' src={image} alt={className} />
       </figure>

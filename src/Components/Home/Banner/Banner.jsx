@@ -1,3 +1,4 @@
+import { Slide } from "react-awesome-reveal";
 import Container from "../../Shared/Container";
 
 const Banner = () => {
@@ -26,12 +27,17 @@ const Banner = () => {
             </div>
           </div>
           <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
-            <a href='#slide4' className='btn btn-circle'>
-              ❮
-            </a>
+            <Slide>
+              <a href='#slide4' className='btn btn-circle'>
+                ❮
+              </a>
+            </Slide>
+            <Slide direction="right">
+
             <a href='#slide2' className='btn btn-circle'>
               ❯
             </a>
+            </Slide>
           </div>
         </div>
         <div id='slide2' className='carousel-item relative w-full'>

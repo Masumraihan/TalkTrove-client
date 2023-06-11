@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import ManageUsersRow from "./ManageUsersRow";
 import { toast } from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const ManageUsers = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -26,6 +27,9 @@ const ManageUsers = () => {
 
   return (
     <>
+    <Helmet>
+        <title>TalkTrove | Dashboard | Manage-Users</title>
+      </Helmet>
       <h1 className='text-4xl pb-4 text-center font-bold'>Manage Users</h1>
       <div className='container w-2/3 mx-auto px-4 sm:px-8'>
         <div className='py-4'>

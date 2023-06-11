@@ -4,6 +4,7 @@ import ManageClassesRow from "./ManageClassesRow";
 import { toast } from "react-hot-toast";
 import FeedbackModal from "../../../Components/Dashboard/FeedbackModal";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const ManageClasses = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +42,6 @@ const ManageClasses = () => {
   };
 
   const handleFeedback = (e) => {
-    // TODO Add Feedback if admin denied the class
     e.preventDefault();
     const feedback = e.target.feedback.value;
     console.log(classId);
@@ -57,6 +57,9 @@ const ManageClasses = () => {
 
   return (
     <>
+      <Helmet>
+        <title>TalkTrove | Dashboard | Manage-Classes</title>
+      </Helmet>
       <h1 className='text-4xl pb-4 text-center font-bold'>Manage Classes</h1>
       <div>
         <div className='container mx-auto px-4 sm:px-8'>

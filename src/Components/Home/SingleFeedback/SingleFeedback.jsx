@@ -1,9 +1,9 @@
-import React from "react";
+import "react";
 
 const SingleFeedback = ({ fb }) => {
   const { image, courseName, feedback,studentName } = fb;
   return (
-    <div className='w-full max-w-sm text-center p-4 flex items-center justify-center rounded-lg shadow'>
+    <div className='w-full max-w-sm text-center p-4 flex items-center justify-center rounded-lg hover:shadow-lg'>
       <div className='flex flex-col items-center pb-10'>
         <img
           className='w-24 h-24 mb-3 rounded-full shadow-lg'
