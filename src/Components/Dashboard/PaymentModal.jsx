@@ -1,7 +1,12 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import CheckoutForm from "./CheckoutFrom";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
+const stripePromise = loadStripe(`${import.meta.env.VITE_Payment_Gateway_PK}`);
 const PaymentModal = ({ isOpen, closeModal }) => {
+  console.log(import.meta.env.VITE_Payment_Gateway_PK);
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={closeModal}>
@@ -35,25 +40,29 @@ const PaymentModal = ({ isOpen, closeModal }) => {
                 >
                   Confirm Your Payment
                 </Dialog.Title>
-                <div className='mt-2'>
-                  <p className='text-sm text-gray-500'>herro</p>
-                </div>
+                <form>
+                  <div className='mt-2'>
+                    <Elements>
+                      <CheckoutForm stripe={stripePromise} />
+                    </Elements>
+                  </div>
 
-                <div className='mt-4 flex justify-between items-center'>
-                  <button
-                    type='button'
-                    className='inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-sm font-medium text-violet-900 hover:bg-violet-200'
-                    onClick={closeModal}
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type='submit'
-                    className='inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-violet-900 hover:bg-green-200'
-                  >
-                    Pay
-                  </button>
-                </div>
+                  <div className='mt-4 flex justify-between items-center'>
+                    <button
+                      type='button'
+                      className='inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-sm font-medium text-violet-900 hover:bg-violet-200'
+                      onClick={closeModal}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type='submit'
+                      className='inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-violet-900 hover:bg-green-200'
+                    >
+                      Pay
+                    </button>
+                  </div>
+                </form>
               </Dialog.Panel>
             </Transition.Child>
           </div>

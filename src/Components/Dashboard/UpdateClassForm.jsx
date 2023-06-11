@@ -1,24 +1,23 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
-import {SyncLoader} from "react-spinners"
+import { FadeLoader } from "react-spinners";
 
-
-const AddClassForm = ({
+const UpdateClassForm = ({
   handleSubmit,
-  uploadButtonText,
   handleImageChange,
+  uploadButtonText,
   loading,
+  classDetails,
 }) => {
   const { user } = useContext(AuthContext);
-
   return (
     <div className='w-full py-10 flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50'>
-      <form onSubmit={handleSubmit} className='w-full md:w-1/2'>
+      <form onSubmit={handleSubmit} className='w-full'>
         <div className='grid gap-10'>
           <div className='space-y-6'>
             <div className='space-y-1 text-sm'>
               <label htmlFor='className' className='block text-gray-600'>
-                Class Name
+                Update Class Name
               </label>
               <input
                 className='w-full px-4 py-3 text-gray-800 border border-violet-300 focus:outline-violet-500 rounded-md '
@@ -27,6 +26,7 @@ const AddClassForm = ({
                 type='text'
                 placeholder='Class Name'
                 required
+                defaultValue={classDetails.className}
               />
             </div>
           </div>
@@ -83,7 +83,7 @@ const AddClassForm = ({
             <div className='grid md:grid-cols-2 gap-2'>
               <div className='space-y-1 text-sm'>
                 <label htmlFor='price' className='block text-gray-600'>
-                  Price
+                  New Price
                 </label>
                 <input
                   className='w-full px-4 py-3 text-gray-800 border border-violet-300 focus:outline-violet-500 rounded-md '
@@ -92,12 +92,13 @@ const AddClassForm = ({
                   type='number'
                   placeholder='Price'
                   required
+                  defaultValue={classDetails.price}
                 />
               </div>
 
               <div className='space-y-1 text-sm'>
                 <label htmlFor='seats' className='block text-gray-600'>
-                  Available Seats
+                  Update Available Seats
                 </label>
                 <input
                   className='w-full px-4 py-3 text-gray-800 border border-violet-300 focus:outline-violet-500 rounded-md '
@@ -106,6 +107,7 @@ const AddClassForm = ({
                   type='number'
                   placeholder='Available Seats'
                   required
+                  defaultValue={classDetails.seats}
                 />
               </div>
             </div>
@@ -116,11 +118,11 @@ const AddClassForm = ({
           type='submit'
           className='w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-violet-500'
         >
-          {loading ? <SyncLoader color="#1DCDBC" /> : "Add Class"}
+          {loading ? <FadeLoader color='#1DCDBC' /> : "Update Class"}
         </button>
       </form>
     </div>
   );
 };
 
-export default AddClassForm;
+export default UpdateClassForm;

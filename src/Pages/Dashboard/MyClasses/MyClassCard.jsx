@@ -1,8 +1,10 @@
 import { useState } from "react";
 import ShowFeedbackModal from "../../../Components/Dashboard/ShowFeedbackModal";
+import UpdateClassModal from "../../../Components/Dashboard/UpdateClassModal";
 
-const MyClassCard = ({ classDetails }) => {
+const MyClassCard = ({ classDetails,refetch }) => {
   let [isOpen, setIsOpen] = useState(false);
+  let [isUpdateOpen, setIsUpdateOpen] = useState(false);
 
   function closeModal() {
     setIsOpen(false);
@@ -11,6 +13,13 @@ const MyClassCard = ({ classDetails }) => {
   function openModal() {
     setIsOpen(true);
   }
+  function closeUpdateModal() {
+    setIsUpdateOpen(false);
+  }
+
+  function openUpdateModal() {
+    setIsUpdateOpen(true);
+  }
   const {
     className,
     image,
@@ -18,9 +27,7 @@ const MyClassCard = ({ classDetails }) => {
     enrolledStudents,
     feedback = "",
   } = classDetails;
-  if (feedback) {
-    console.log(feedback);
-  }
+
   return (
     <div className='card w-full bg-base-100 shadow-xl'>
       <figure>
@@ -50,7 +57,10 @@ const MyClassCard = ({ classDetails }) => {
           >
             Feedback
           </button>
-          <button className='btn-sm mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-violet-500'>
+          <button
+            onClick={openUpdateModal}
+            className='btn-sm mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-violet-500'
+          >
             Update
           </button>
         </div>
@@ -60,6 +70,12 @@ const MyClassCard = ({ classDetails }) => {
           isOpen={isOpen}
           closeModal={closeModal}
           feedback={feedback}
+        />
+        <UpdateClassModal
+          isOpen={isUpdateOpen}
+          closeModal={closeUpdateModal}
+          classDetails={classDetails}
+          refetch={refetch}
         />
       </>
     </div>
