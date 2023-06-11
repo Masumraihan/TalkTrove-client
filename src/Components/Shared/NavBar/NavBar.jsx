@@ -5,6 +5,7 @@ import { AuthContext } from "../../../Providers/AuthProviders";
 import UserMenu from "./UserMenu";
 import { BiMenuAltLeft } from "react-icons/bi";
 import Framer1 from "../Framer1";
+import { motion } from "framer-motion";
 
 const NavBar = () => {
   const { user } = useContext(AuthContext);
@@ -15,9 +16,18 @@ const NavBar = () => {
         <div className='navbar bg-base-100'>
           <div className='navbar-start'>
             <div className='dropdown'>
-              <label tabIndex={0} className='btn btn-ghost btn-square'>
-                <BiMenuAltLeft size={32} />
-              </label>
+              <motion.div
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                whileTap={{
+                  scale: 0.8,
+                  rotate: -90,
+                  borderRadius: "100%",
+                }}
+              >
+                <label tabIndex={0} className='btn btn-ghost btn-square'>
+                  <BiMenuAltLeft color="" size={32} />
+                </label>
+              </motion.div>
               <ul
                 tabIndex={0}
                 className='menu menu-lg dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'

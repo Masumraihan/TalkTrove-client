@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Helmet } from "react-helmet-async";
 import Banner from "../../../Components/Home/Banner/Banner";
 import PopularClasses from "../PopularClasses/PopularClasses";
@@ -14,7 +14,7 @@ const Home = () => {
       <Banner />
       <PopularClasses />
       <PopularInstructors />
-      <StudentsFeedback/>
+      <StudentsFeedback />
     </>
   );
 };

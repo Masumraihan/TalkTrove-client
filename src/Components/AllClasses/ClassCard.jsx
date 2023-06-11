@@ -3,6 +3,7 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { toast } from "react-hot-toast";
+import Button from "../Shared/Button/Button";
 
 const ClassCard = ({ classDetails }) => {
   const [axiosSecure] = useAxiosSecure();
@@ -39,31 +40,31 @@ const ClassCard = ({ classDetails }) => {
     <div
       className={`card w-full ${
         seats <= 0 ? "bg-red-500 text-white" : "bg-base-100"
-      }  shadow-xl`}
+      }  hover:shadow-xl`}
     >
       <figure className='px-10  pt-10'>
         <img src={image} alt='Shoes' className='rounded-xl h-40' />
       </figure>
-      <div className='card-body text-center'>
-        <h2 className='card-title'>{className}</h2>
-        <h2 className='card-title'>{name}</h2>
-        <p className='text-start text-xl font-semibold'>{instructor}</p>
-        <p className='text-start text-xl font-semibold'>
-          Available seats : {seats}
+      <div className='card-body'>
+        <h2 className="card-title">{className}</h2>
+        
+        <p className='font-semibold'>Instructor: {name}</p>
+        <p className='font-semibold'>
+          Available Seats : {seats}
         </p>
         <div className='card-actions items-center'>
-          <p className='text-start text-xl font-semibold'>Price : ${price}</p>
-          <p className='text-start text-xl font-semibold'>
+          <p className='font-semibold'>Price : ${price}</p>
+          <p className='font-semibold'>
             Students : {enrolledStudents}
           </p>
         </div>
-        <button
+        <Button
           onClick={handleSelectClass}
           disabled={seats <= 0 || role === "admin" || role === "instructor"}
-          className=' btn btn-primary'
+          
         >
           Select
-        </button>
+        </Button>
       </div>
     </div>
   );
