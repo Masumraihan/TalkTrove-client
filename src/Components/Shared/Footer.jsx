@@ -3,17 +3,19 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <Slide direction='up'>
+    <Slide>
       <footer className='footer p-10 bg-base-200 text-base-content'>
         <div className='text-center'>
           <Link className='mx-auto' to='/'>
             <button className='btn text-lg btn-ghost'>TalkTrove</button>
           </Link>
+          <p>mdmasumraihan1@gmail.com</p>
           <p>
             ACME Industries Ltd.
             <br />
             Providing reliable tech since 1992
           </p>
+          <p>Copyright © 2023 - All right reserved</p>
         </div>
         <div>
           <span className='footer-title'>Services</span>

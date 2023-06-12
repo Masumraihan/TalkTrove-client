@@ -19,6 +19,7 @@ const AuthProviders = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
   const [role, setRole] = useState(null);
+  const [theme, setTheme] = useState("light");
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -29,6 +30,11 @@ const AuthProviders = ({ children }) => {
       });
     }
   }, [user]);
+
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const createUser = (email, password) => {
     setLoader(true);
@@ -88,6 +94,8 @@ const AuthProviders = ({ children }) => {
     updateUserProfile,
     googleSignIn,
     role,
+    theme,
+    setTheme
   };
 
   return (

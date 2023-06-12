@@ -1,14 +1,15 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
-
+import { AuthContext } from "../../../Providers/AuthProviders";
 
 const DashboardHome = () => {
-  
+  const { user } = useContext(AuthContext);
   return (
-    <div>
-       <Helmet>
+    <div className='min-h-screen '>
+      <Helmet>
         <title>TalkTrove | Dashboard | Home</title>
       </Helmet>
-      <h1>dash board home</h1>
+      <h1 className="text-3xl text-center font-extrabold">Welcome back, {user?.displayName} </h1>
     </div>
   );
 };

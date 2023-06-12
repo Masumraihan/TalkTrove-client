@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, } from "react";
 import Container from "../Container";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProviders";
@@ -8,15 +8,11 @@ import { motion } from "framer-motion";
 import { Bounce } from "react-awesome-reveal";
 
 const NavBar = () => {
-  const { user } = useContext(AuthContext);
-  const [theme, setTheme] = useState("light");
+  const { user,setTheme, } = useContext(AuthContext);
 
-  useEffect(() => {
-    localStorage.setItem("theme", theme);
-  }, [theme]);
 
   return (
-    <div className='fixed w-full bg-white z-10 shadow-sm'>
+    <div className='fixed w-full bg-base-100 z-10 shadow-sm'>
       <Container>
         <div className='navbar bg-base-100'>
           <div className='navbar-start'>

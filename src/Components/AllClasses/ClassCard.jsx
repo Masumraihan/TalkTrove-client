@@ -44,7 +44,7 @@ const ClassCard = ({ classDetails }) => {
       }  hover:shadow-xl`}
     >
       <figure className='px-10  pt-10'>
-        <img src={image} alt='Shoes' className='rounded-xl h-40' />
+        <img src={image} alt='Shoes' className='rounded-xl w-full h-40' />
       </figure>
       <div className='card-body'>
         <h2 className="card-title">{className}</h2>

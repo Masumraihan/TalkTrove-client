@@ -5,9 +5,8 @@ import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import StudentsFeedback from "../StudentsFeedback/StudentsFeedback";
 
 const Home = () => {
-  console.log(localStorage.getItem("theme"));
   return (
-    <div data-theme={localStorage.getItem("theme")}>
+    <div >
       <Helmet>
         <title>TalkTrove | Home</title>
       </Helmet>

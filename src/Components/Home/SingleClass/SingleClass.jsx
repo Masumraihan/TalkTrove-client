@@ -5,7 +5,7 @@ const SingleClass = ({ singleClass }) => {
     singleClass;
   return (
     <Zoom>
-      <div className='hero rounded-xl md:h-80 py-8 hover:shadow-lg transition-shadow bg-base-200'>
+      <div className='hero rounded-xl py-8 hover:shadow-lg transition-shadow bg-base-200'>
         <div className='hero-content gap-4 flex-col lg:flex-row'>
           <img
             src={image}
@@ -15,11 +15,11 @@ const SingleClass = ({ singleClass }) => {
             <h1 className='text-2xl font-bold'>{className} </h1>
             <h2 className='py-2 text-xl font-semibold'>Instructor: {name}</h2>
             <h2 className='text-xl font-semibold'>price: ${price}</h2>
-            <div className='mt-6 flex flex-shrink-0 gap-2 items-center'>
-              <p className='border border-violet-300 rounded-md py-3 px-4'>
+            <div className='mt-6 flex flex-shrink-0 gap-1 text-sm items-center'>
+              <p className='border border-violet-300 rounded-md py-3 px-2'>
                 Available Seats: {seats}
               </p>
-              <p className='border border-violet-300 rounded-md py-3 px-4'>
+              <p className='border border-violet-300 rounded-md py-3 px-2'>
                 Enrolled Students: {enrolledStudents}
               </p>
             </div>

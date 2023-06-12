@@ -7,13 +7,13 @@ import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
 
 const DashboardLayout = () => {
-  const { role } = useContext(AuthContext);
+  const { role, theme } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
   return (
-    <>
+    <div data-theme={theme}>
       <Drawer
         open={isOpen}
         onClose={toggleDrawer}
@@ -99,7 +99,7 @@ const DashboardLayout = () => {
           <Outlet />
         </div>
       </Container>
-    </>
+    </div>
   );
 };
 export default DashboardLayout;
