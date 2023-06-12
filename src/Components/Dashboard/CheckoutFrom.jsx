@@ -82,7 +82,6 @@ const CheckoutForm = ({ closeModal, classInfo }) => {
         date: new Date(),
       };
       if (paymentIntent.status === "succeeded") {
-        //console.log(paymentInfo);
         axiosSecure
           .post(`/enroll/${classInfo.classId}`, paymentInfo)
           .then((data) => {

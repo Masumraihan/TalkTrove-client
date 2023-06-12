@@ -28,11 +28,9 @@ const UpdateClassModal = ({ isOpen, closeModal, classDetails, refetch }) => {
           seats: parseInt(seats),
           date: new Date(),
         };
-        console.log(classInfo);
         axiosSecure
           .put(`/classes/${classDetails._id}`, classInfo)
           .then((data) => {
-            console.log(data?.data);
             if (data.data.modifiedCount > 0) {
               closeModal();
               refetch();

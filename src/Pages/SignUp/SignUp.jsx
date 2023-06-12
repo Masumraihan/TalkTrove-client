@@ -26,7 +26,6 @@ const SignUp = () => {
     if (password !== confirmPassword) {
       return setError("password not matched");
     }
-    console.log(name, email, photo, password);
     createUser(email, password)
       .then((result) => {
         console.log(result.user);

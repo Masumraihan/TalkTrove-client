@@ -35,7 +35,6 @@ const AddClass = () => {
         enrolledStudents: 0,
       };
       axiosSecure.post(`/classes/instructor`, classInfo).then((data) => {
-        console.log(data);
         if (data.data.insertedId) {
           toast.success("Your Class added successfully");
           navigate("/dashboard/myClasses");

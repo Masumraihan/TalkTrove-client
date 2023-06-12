@@ -10,14 +10,12 @@ const ManageUsers = () => {
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
-      console.log(res);
       return res.data;
     },
   });
 
   const updateUserRole = (id, role) => {
     axiosSecure.patch(`/users/${id}`, { role }).then((data) => {
-      console.log(data.data);
       if (data.data.modifiedCount > 0) {
         refetch();
         toast.success("User Role Updated Successfully");
