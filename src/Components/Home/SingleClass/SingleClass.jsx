@@ -5,7 +5,7 @@ const SingleClass = ({ singleClass }) => {
     singleClass;
   return (
     <Zoom>
-      <div className='hero rounded-xl py-8 hover:shadow-lg transition-shadow bg-base-200'>
+      <div className='hero rounded-xl md:h-80 py-8 hover:shadow-lg transition-shadow bg-base-200'>
         <div className='hero-content gap-4 flex-col lg:flex-row'>
           <img
             src={image}

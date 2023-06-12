@@ -34,12 +34,17 @@ const DashboardLayout = () => {
             </Link>
             <Link to='/dashboard/mySelectedClasses'>
               <li>
-                <span>My Selected Classes</span>
+                <span>Selected Classes</span>
               </li>
             </Link>
             <Link to='/dashboard/myEnrolledClasses'>
               <li>
-                <span>My Enrolled Classes</span>
+                <span> Enrolled Classes</span>
+              </li>
+            </Link>
+            <Link to='/dashboard/paymentHistory'>
+              <li>
+                <span>Payment History</span>
               </li>
             </Link>
           </ul>

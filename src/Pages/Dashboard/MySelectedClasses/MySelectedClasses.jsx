@@ -53,16 +53,16 @@ const MySelectedClasses = () => {
 
   return (
     <div>
-       <Helmet>
+      <Helmet>
         <title>TalkTrove | Dashboard | My-Selected-Class</title>
       </Helmet>
       {selectedClasses.length === 0 ? (
         <>
           <div className='flex items-center justify-center'>
-            <Link to='/dashboard/addClasses'>
+            <Link to='/allClasses'>
               <Button>
                 <BsArrowLeft size={26} />
-                Home Page
+                Classes Page
               </Button>
             </Link>
           </div>

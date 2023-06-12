@@ -7,7 +7,7 @@ const SingleInstructors = ({ instructor }) => {
       <div className='card bg-base-200  hover:shadow-lg'>
         <div>
           <figure className='px-10 pt-8'>
-            <img src={photo} alt={className} className='rounded-md' />
+            <img src={photo} alt={className} className='rounded-md h-[250px] w-full' />
           </figure>
         </div>
         <div className='card-body flex-row gap-6'>

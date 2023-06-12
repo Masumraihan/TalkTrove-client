@@ -16,6 +16,7 @@ const ClassCard = ({ classDetails }) => {
     if (!user) {
       navigate("/login", { state: { from: location } });
     }
+    console.log("clicked");
 
     axiosSecure
       .post("/classes", {
@@ -59,7 +60,7 @@ const ClassCard = ({ classDetails }) => {
           </p>
         </div>
         <Button
-          onClick={handleSelectClass}
+          event={handleSelectClass}
           disabled={seats <= 0 || role === "admin" || role === "instructor"}
           
         >
