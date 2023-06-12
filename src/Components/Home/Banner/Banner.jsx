@@ -1,5 +1,6 @@
 import { Slide } from "react-awesome-reveal";
 import Container from "../../Shared/Container";
+import bg from "../../../assets/bg2.png";
 
 const Banner = () => {
   return (
@@ -12,7 +13,11 @@ const Banner = () => {
               backgroundImage: `url("https://media.istockphoto.com/id/905514896/photo/foreign-language-communication-speech-bubbles.jpg?s=2048x2048&w=is&k=20&c=-yYjiTv8u69-eoYnKoZNiM_JSycuULXEaCkEjlG7Q04=")`,
             }}
           >
-            <div className='hero-overlay bg-opacity-70'></div>
+            <Slide className='w-full'>
+              <div className='hero-overlay bg-opacity-70'>
+                <img className='h-[70vh] w-full opacity-60' src={bg} alt='' />
+              </div>
+            </Slide>
             <div className='hero-content text-center text-neutral-content'>
               <div className='max-w-md'>
                 <h1 className='mb-5 text-5xl font-bold'>
@@ -32,11 +37,10 @@ const Banner = () => {
                 ❮
               </a>
             </Slide>
-            <Slide direction="right">
-
-            <a href='#slide2' className='btn btn-circle'>
-              ❯
-            </a>
+            <Slide direction='right'>
+              <a href='#slide2' className='btn btn-circle'>
+                ❯
+              </a>
             </Slide>
           </div>
         </div>
@@ -47,7 +51,11 @@ const Banner = () => {
               backgroundImage: `url("https://media.istockphoto.com/id/143176813/photo/language-master.jpg?s=2048x2048&w=is&k=20&c=gMdjCi5PDXYzo3OLzsg3ziTeoXq-15KjE1_HVlIdaxM=")`,
             }}
           >
-            <div className='hero-overlay bg-opacity-70'></div>
+            <Slide className='w-full'>
+              <div className='hero-overlay bg-opacity-70'>
+                <img className='h-[70vh] w-full opacity-60' src={bg} alt='' />
+              </div>
+            </Slide>
             <div className='hero-content text-center text-neutral-content'>
               <div className='max-w-md'>
                 <h1 className='mb-5 text-5xl font-bold'>
@@ -78,7 +86,11 @@ const Banner = () => {
               backgroundImage: `url("https://images.unsplash.com/photo-1519734004356-f588de029302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")`,
             }}
           >
-            <div className='hero-overlay bg-opacity-70'></div>
+            <Slide className='w-full'>
+              <div className='hero-overlay bg-opacity-70'>
+                <img className='h-[70vh] w-full opacity-60' src={bg} alt='' />
+              </div>
+            </Slide>
             <div className='hero-content text-center text-neutral-content'>
               <div className='max-w-md'>
                 <h1 className='mb-5 text-5xl font-bold'>
@@ -109,7 +121,11 @@ const Banner = () => {
               backgroundImage: `url("https://media.istockphoto.com/id/636604928/photo/hello-word-cloud-collage-in-different-languages.jpg?s=2048x2048&w=is&k=20&c=C-M7PLhn_PbD0Ngpi3cVqaTIJ_hVFHUVN8FTg4ns2_8=")`,
             }}
           >
-            <div className='hero-overlay bg-opacity-70'></div>
+            <Slide className='w-full'>
+              <div className='hero-overlay bg-opacity-70'>
+                <img className='h-[70vh] w-full opacity-60' src={bg} alt='' />
+              </div>
+            </Slide>
             <div className='hero-content text-center text-neutral-content'>
               <div className='max-w-md'>
                 <h1 className='mb-5 text-5xl font-bold'>

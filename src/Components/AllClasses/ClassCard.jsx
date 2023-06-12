@@ -8,7 +8,17 @@ import Button from "../Shared/Button/Button";
 const ClassCard = ({ classDetails }) => {
   const [axiosSecure] = useAxiosSecure();
   const { user, role } = useContext(AuthContext);
-  const { image,className, instructor, price, name, seats, enrolledStudents, _id } = classDetails;
+  const {
+    image,
+    className,
+    instructor,
+    price,
+    name,
+    email,
+    seats,
+    enrolledStudents,
+    _id,
+  } = classDetails;
   const navigate = useNavigate();
   const location = useLocation();
   // TODO user can not select multiple classes
@@ -16,11 +26,11 @@ const ClassCard = ({ classDetails }) => {
     if (!user) {
       navigate("/login", { state: { from: location } });
     }
-    console.log("clicked");
 
     axiosSecure
       .post("/classes", {
-        email: user?.email,
+        userEmail: user?.email,
+        email,
         name,
         className,
         image,
@@ -47,22 +57,17 @@ const ClassCard = ({ classDetails }) => {
         <img src={image} alt='Shoes' className='rounded-xl w-full h-40' />
       </figure>
       <div className='card-body'>
-        <h2 className="card-title">{className}</h2>
-        
+        <h2 className='card-title'>{className}</h2>
+
         <p className='font-semibold'>Instructor: {name}</p>
-        <p className='font-semibold'>
-          Available Seats : {seats}
-        </p>
+        <p className='font-semibold'>Available Seats : {seats}</p>
         <div className='card-actions items-center'>
           <p className='font-semibold'>Price : ${price}</p>
-          <p className='font-semibold'>
-            Students : {enrolledStudents}
-          </p>
+          <p className='font-semibold'>Students : {enrolledStudents}</p>
         </div>
         <Button
           event={handleSelectClass}
           disabled={seats <= 0 || role === "admin" || role === "instructor"}
-          
         >
           Select
         </Button>

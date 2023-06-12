@@ -75,6 +75,7 @@ const CheckoutForm = ({ closeModal, classInfo }) => {
     } else {
       setError("");
       console.log("[paymentIntent]", paymentIntent);
+      delete classInfo._id;
       const paymentInfo = {
         ...classInfo,
         transactionId: paymentIntent.id,

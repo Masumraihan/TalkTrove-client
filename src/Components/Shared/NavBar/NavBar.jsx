@@ -63,9 +63,8 @@ const NavBar = () => {
           </div>
 
           <div className='navbar-end'>
-            <div className='flex w-full justify-end'>
+            <div className='flex w-full justify-end pr-5'>
               <label className='swap swap-rotate'>
-                {/* this hidden checkbox controls the state */}
                 <input type='checkbox' />
 
                 {/* sun icon */}

@@ -3,14 +3,24 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import Container from "../Components/Shared/Container";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Navigate, Outlet } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
+import Button from "../Components/Shared/Button/Button";
 
 const DashboardLayout = () => {
-  const { role, theme } = useContext(AuthContext);
+  const { role, theme, logOut } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
+  };
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        Navigate("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div data-theme={theme}>
@@ -18,7 +28,7 @@ const DashboardLayout = () => {
         open={isOpen}
         onClose={toggleDrawer}
         direction='left'
-        className='border'
+        className='flex flex-col h-full'
       >
         <button className='absolute z-10 right-0 top-3' onClick={toggleDrawer}>
           <div className='p-2 hover:bg-base-300 mr-2 rounded-lg'>
@@ -87,6 +97,9 @@ const DashboardLayout = () => {
             </Link>
           </ul>
         )}
+        <div onClick={handleLogout} className='px-2 mt-auto mb-10'>
+          <Button>Logout</Button>
+        </div>
       </Drawer>
       <Container>
         <button onClick={toggleDrawer}>

@@ -18,7 +18,7 @@ function UserMenu({ user }) {
   };
 
   return (
-    <div className=' top-16 w-56 text-right'>
+    <div className=' top-16 text-right'>
       <Menu as='div' className='relative inline-block text-left'>
         <div>
           <Menu.Button className='inline-flex w-full justify-center rounded-full font-medium text-white hover:ring-2 ring-violet-200 transition-all hover:border-1'>
