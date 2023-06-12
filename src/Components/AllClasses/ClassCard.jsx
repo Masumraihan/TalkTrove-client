@@ -32,7 +32,7 @@ const ClassCard = ({ classDetails }) => {
       })
       .then((data) => {
         if (data.data.insertedId) {
-          toast.success("class added successfully");
+          toast.success("class Selected successfully");
         }
       });
   };

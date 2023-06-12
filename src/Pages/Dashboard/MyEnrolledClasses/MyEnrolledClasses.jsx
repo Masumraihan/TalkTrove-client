@@ -22,7 +22,7 @@ const MyEnrolledClasses = () => {
   return (
     <div>
       <Helmet>
-        <title>TalkTrove | Dashboard | My-Enrolled-Class</title>
+        <title>TalkTrove | Dashboard | Enrolled-Class</title>
       </Helmet>
       {enrolledClasses.length === 0 ? (
         <>
