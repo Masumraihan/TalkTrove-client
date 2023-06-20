@@ -18,6 +18,7 @@ import InstructorRoute from "./InstructorRoute";
 import AdminRoute from "./AdminRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PaymentHistory from "../Pages/Dashboard/PaymentsHistory/PaymentHistory";
+import InstructorAllClasses from "../Pages/InstructorAllClasses/InstructorAllClasses";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/allInstructors",
         element: <AllInstructors />,
+      },
+      {
+        path: "/instructorClasses/:id",
+        element: <InstructorAllClasses />,
       },
       {
         path: "/allClasses",
@@ -72,7 +77,7 @@ const router = createBrowserRouter([
         element: <PaymentHistory />,
       },
       {
-        path: "/dashboard/addClass",
+        path: "/dashboard/addClasses",
         element: (
           <InstructorRoute>
             <AddClass />

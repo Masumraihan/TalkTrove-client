@@ -1,4 +1,5 @@
 import { Slide } from "react-awesome-reveal";
+import Typewriter from "typewriter-effect";
 import Container from "../../Shared/Container";
 import bg from "../../../assets/bg2.png";
 
@@ -6,7 +7,7 @@ const Banner = () => {
   return (
     <Container>
       <div className='carousel rounded-md w-full h-[70vh]'>
-        <div id='slide1' className='carousel-item relative w-full'>
+        <div id='slide1' className='carousel-item relative w-full '>
           <div
             className='hero h-[70vh]'
             style={{
@@ -20,8 +21,14 @@ const Banner = () => {
             </Slide>
             <div className='hero-content text-center text-neutral-content'>
               <div className='max-w-md'>
-                <h1 className='mb-5 text-5xl font-bold'>
-                  Learn a New Language
+                <h1 className='mb-5 text-4xl font-bold'>
+                  <Typewriter
+                    options={{
+                      strings: "Learn a New Language",
+                      autoStart: true,
+                      loop: true,
+                    }}
+                  />
                 </h1>
                 <p className='mb-5'>
                   Join our language learning program and embark on an exciting
@@ -58,8 +65,14 @@ const Banner = () => {
             </Slide>
             <div className='hero-content text-center text-neutral-content'>
               <div className='max-w-md'>
-                <h1 className='mb-5 text-5xl font-bold'>
-                  Immerse Yourself in Culture
+                <h1 className='mb-5 text-3xl font-bold'>
+                  <Typewriter
+                    options={{
+                      strings: " Immerse Yourself in Culture",
+                      autoStart: true,
+                      loop: true,
+                    }}
+                  />
                 </h1>
                 <p className='mb-5'>
                   Immerse yourself in the rich tapestry of global cultures
@@ -94,7 +107,13 @@ const Banner = () => {
             <div className='hero-content text-center text-neutral-content'>
               <div className='max-w-md'>
                 <h1 className='mb-5 text-5xl font-bold'>
-                  Unlock Global Opportunities
+                  <Typewriter
+                    options={{
+                      strings: " Unlock Global Opportunities",
+                      autoStart: true,
+                      loop: true,
+                    }}
+                  />
                 </h1>
                 <p className='mb-5'>
                   Open doors to countless opportunities by learning a foreign
@@ -129,7 +148,13 @@ const Banner = () => {
             <div className='hero-content text-center text-neutral-content'>
               <div className='max-w-md'>
                 <h1 className='mb-5 text-5xl font-bold'>
-                  Learn a New Language
+                  <Typewriter
+                    options={{
+                      strings: "Learn a New Language",
+                      autoStart: true,
+                      loop: true,
+                    }}
+                  />
                 </h1>
                 <p className='mb-5'>
                   Join our language learning program and embark on an exciting

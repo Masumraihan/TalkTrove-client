@@ -3,14 +3,21 @@ import Container from "../../Components/Shared/Container";
 import { loadData } from "../../Api/utils";
 import InstructorCard from "./InstructorCard";
 import { Helmet } from "react-helmet-async";
-
+import useScrollTop from "../../hooks/useScrollTop";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
 const AllInstructors = () => {
   const [allInstructors, setAllInstructors] = useState([]);
+
+  const { user } = useContext(AuthContext);
+  useScrollTop();
+
   useEffect(() => {
     loadData("allInstructors").then((data) => {
       setAllInstructors(data);
     });
-  }, []);
+
+  }, [user]);
   return (
     <Container>
       <Helmet>

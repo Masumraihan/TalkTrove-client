@@ -17,3 +17,9 @@ export const imageUpload = async (img) => {
   return data;
 };
 
+export const getInstructorClasses = async (id) => {
+  const res = await fetch(
+    `${import.meta.env.VITE_BASE_URL}/instructorClasses/${id}`
+  );
+  return await res.json();
+};

@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../../Providers/AuthProviders";
+import useScrollTop from "../../../hooks/useScrollTop"
 
 const DashboardHome = () => {
   const { user } = useContext(AuthContext);
+  useScrollTop()
   return (
     <div className='min-h-screen '>
       <Helmet>

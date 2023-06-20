@@ -1,15 +1,13 @@
-import { useContext, } from "react";
+import { useContext } from "react";
 import Container from "../Container";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import UserMenu from "./UserMenu";
 import { BiMenuAltLeft } from "react-icons/bi";
-import { motion } from "framer-motion";
 import { Bounce } from "react-awesome-reveal";
 
 const NavBar = () => {
-  const { user,setTheme, } = useContext(AuthContext);
-
+  const { user, setTheme} = useContext(AuthContext);
 
   return (
     <div className='fixed w-full bg-base-100 z-10 shadow-sm'>
@@ -17,18 +15,9 @@ const NavBar = () => {
         <div className='navbar bg-base-100'>
           <div className='navbar-start'>
             <div className='dropdown'>
-              <motion.div
-                whileHover={{ scale: 1.2, rotate: 360 }}
-                whileTap={{
-                  scale: 0.8,
-                  rotate: -90,
-                  borderRadius: "100%",
-                }}
-              >
-                <label tabIndex={0} className='btn btn-ghost btn-square'>
-                  <BiMenuAltLeft color='' size={32} />
-                </label>
-              </motion.div>
+              <label tabIndex={0} className='btn btn-ghost btn-square'>
+                <BiMenuAltLeft color='' size={32} />
+              </label>
               <ul
                 tabIndex={0}
                 className='menu menu-lg dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'

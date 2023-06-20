@@ -19,13 +19,13 @@ const AuthProviders = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
   const [role, setRole] = useState(null);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme"));
 
   const googleProvider = new GoogleAuthProvider();
 
   useEffect(() => {
     if (user) {
-      getRole(user.email).then((role) => {
+      getRole(user?.email).then((role) => {
         setRole(role);
       });
     }

@@ -14,7 +14,7 @@ const StudentsFeedback = () => {
     });
   }, []);
   return (
-    <div className='py-20'>
+    <div className='pt-20'>
       <h1 className='text-4xl pb-4 text-center font-bold'>
         Our Students Feedback
       </h1>

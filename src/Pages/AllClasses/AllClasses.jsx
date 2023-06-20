@@ -5,10 +5,12 @@ import ClassCard from "../../Components/AllClasses/ClassCard";
 import Loader from "../../Components/Shared/Loader";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { Helmet } from "react-helmet-async";
-
+import useScrollTop from "../../hooks/useScrollTop";
 const AllClasses = () => {
   const { loader } = useContext(AuthContext);
   const [allClasses, setAllClasses] = useState([]);
+  useScrollTop();
+  
   useEffect(() => {
     loadData("allClasses").then((data) => {
       setAllClasses(data);
@@ -19,7 +21,7 @@ const AllClasses = () => {
   }
   return (
     <Container>
-       <Helmet>
+      <Helmet>
         <title>TalkTrove | All-Classes</title>
       </Helmet>
       {allClasses.length <= 0 ? (

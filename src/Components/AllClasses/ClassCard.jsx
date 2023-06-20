@@ -21,6 +21,8 @@ const ClassCard = ({ classDetails }) => {
   } = classDetails;
   const navigate = useNavigate();
   const location = useLocation();
+
+
   // TODO user can not select multiple classes
   const handleSelectClass = () => {
     if (!user) {
@@ -46,7 +48,7 @@ const ClassCard = ({ classDetails }) => {
         }
       });
   };
-
+  
   return (
     <div
       className={`card w-full ${
@@ -67,7 +69,7 @@ const ClassCard = ({ classDetails }) => {
         </div>
         <Button
           event={handleSelectClass}
-          disabled={seats <= 0 || role === "admin" || role === "instructor"}
+          disabled={ seats <= 0 || role === "admin" || role === "instructor"}
         >
           Select
         </Button>

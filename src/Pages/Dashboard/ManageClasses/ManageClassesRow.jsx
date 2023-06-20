@@ -7,7 +7,7 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
   return (
     <>
       <tr>
-        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+        <td className='px-5 py-5 border-b border-gray-200 bg-base-200 text-sm'>
           <div className='flex items-center space-x-3'>
             <div className='avatar'>
               <div className='mask mask-squircle w-16 h-16'>
@@ -20,17 +20,17 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
             </div>
           </div>
         </td>
-        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+        <td className='px-5 py-5 border-b border-gray-200 bg-base-200 text-sm'>
           <p className='text-gray-900 whitespace-no-wrap'>{email}</p>
         </td>
-        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+        <td className='px-5 py-5 border-b border-gray-200 bg-base-200 text-sm'>
           <p className='text-gray-900 whitespace-no-wrap'>{seats}</p>
         </td>
-        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+        <td className='px-5 py-5 border-b border-gray-200 bg-base-200 text-sm'>
           <p className='text-gray-900 whitespace-no-wrap'>${price}</p>
         </td>
 
-        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+        <td className='px-5 py-5 border-b border-gray-200 bg-base-200 text-sm'>
           <span className='relative inline-block px-3 py-2 font-semibold text-green-900 leading-tight'>
             <span
               aria-hidden='true'
@@ -43,7 +43,7 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
             <span className='relative'>{status}</span>
           </span>
         </td>
-        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+        <td className='px-5 py-5 border-b border-gray-200 bg-base-200 text-sm'>
           <button
             disabled={status === "approved" || status === "denied"}
             onClick={() => updateClassStatus(_id, "approved")}
@@ -60,7 +60,7 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
             <span className='relative'>Approved</span>
           </button>
         </td>
-        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+        <td className='px-5 py-5 border-b border-gray-200 bg-base-200 text-sm'>
           <button
             disabled={status === "approved" || status === "denied"}
             onClick={() => updateClassStatus(_id, "denied")}
@@ -77,7 +77,7 @@ const ManageClassesRow = ({ classDetails, updateClassStatus, openModal }) => {
             <span className='relative'>Deny</span>
           </button>
         </td>
-        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+        <td className='px-5 py-5 border-b border-gray-200 bg-base-200 text-sm'>
           <button
             onClick={() => openModal(_id)}
             className='w-full flex gap-2 justify-center items-center p-2 text-center font-medium text-white transition duration-200 rounded shadow-md bg-violet-500'
