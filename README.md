@@ -26,3 +26,4 @@ Uses package list
 * react-spinners
 
 live link: https://talktrove.web.app/
+server link: https://github.com/Masumraihan/chefRecipe-server
