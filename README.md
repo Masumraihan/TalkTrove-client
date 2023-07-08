@@ -25,5 +25,6 @@ Uses package list
 * react-modern-drawer
 * react-spinners
 
-live link: https://talktrove.web.app/
-server link: https://github.com/Masumraihan/chefRecipe-server
+live link: https://talktrove.web.app/ 
+
+server link: https://github.com/Masumraihan/TalkTrove-server
