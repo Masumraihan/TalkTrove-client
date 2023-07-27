@@ -28,3 +28,9 @@ Uses package list
 live link: https://talktrove.web.app/ 
 
 server link: https://github.com/Masumraihan/TalkTrove-server
+
+admin: admin2@gmail.com
+admin Pass: @@Masum##33
+
+instructor: instructorOne@gmail.com
+instructor Pass: @@Masum##33
