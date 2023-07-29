@@ -4,7 +4,7 @@ import placeholderImg from "../../../assets/placeholder.jpg";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { useNavigate } from "react-router-dom";
 
-function UserMenu({ user }) {
+function UserMenu({ user,openModal }) {
   const { logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -17,15 +17,17 @@ function UserMenu({ user }) {
       });
   };
 
+  
+
   return (
     <div className=' top-16 text-right'>
       <Menu as='div' className='relative inline-block text-left'>
         <div>
           <Menu.Button className='inline-flex w-full justify-center rounded-full font-medium text-white hover:ring-2 ring-violet-200 transition-all hover:border-1'>
-            <div className='tooltip tooltip-left' data-tip={user.displayName}>
+            <div className='tooltip tooltip-left' data-tip={user?.name}>
               <img
                 className='w-12 h-12 rounded-full'
-                src={user?.photoURL ? user.photoURL : placeholderImg}
+                src={user?.photo ? user?.photo : placeholderImg}
                 alt='profile'
                 referrerPolicy='no-referrer'
               />
@@ -46,9 +48,9 @@ function UserMenu({ user }) {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    onClick={()=>openModal(true)}
+                    className={`${active ? "bg-violet-500 text-white" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     Edit
                   </button>
@@ -61,9 +63,8 @@ function UserMenu({ user }) {
                 {({ active }) => (
                   <button
                     onClick={handleLogout}
-                    className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    className={`${active ? "bg-violet-500 text-white" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     Logout
                   </button>

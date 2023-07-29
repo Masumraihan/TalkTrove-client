@@ -12,6 +12,7 @@ import {
 import app from "../firebase/firebase.config";
 import axios from "axios";
 import { getRole } from "../Api/userApi";
+import { useQuery } from "@tanstack/react-query";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -30,6 +31,16 @@ const AuthProviders = ({ children }) => {
       });
     }
   }, [user]);
+
+  const {data:profileInfo, refetch:profileRefetch} = useQuery({
+    queryKey:["user"],
+    enabled:!!user,
+    queryFn:async () => {
+      const res = await fetch(`${import.meta.env.VITE_BASE_URL}/users/${user?.email}`);
+      const data = await res.json();
+      return data;
+    }
+  })
 
 
   useEffect(() => {
@@ -95,7 +106,9 @@ const AuthProviders = ({ children }) => {
     googleSignIn,
     role,
     theme,
-    setTheme
+    setTheme,
+    profileInfo,
+    profileRefetch
   };
 
   return (

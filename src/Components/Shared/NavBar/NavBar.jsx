@@ -5,9 +5,20 @@ import { AuthContext } from "../../../Providers/AuthProviders";
 import UserMenu from "./UserMenu";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { Bounce } from "react-awesome-reveal";
+import EditModal from "./EditModal";
+import { useState } from "react";
 
 const NavBar = () => {
-  const { user, setTheme} = useContext(AuthContext);
+  const { user, setTheme, profileInfo } = useContext(AuthContext);
+  let [isOpen, setIsOpen] = useState(false)
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
 
   return (
     <div className='fixed w-full bg-base-100 z-10 shadow-sm'>
@@ -79,7 +90,7 @@ const NavBar = () => {
             </div>
             {user ? (
               <>
-                <UserMenu user={user} />
+                <UserMenu openModal={openModal} user={profileInfo} />
               </>
             ) : (
               <Link to='/login'>
@@ -89,6 +100,7 @@ const NavBar = () => {
           </div>
         </div>
       </Container>
+      <EditModal closeModal={closeModal} isOpen={isOpen} profileInfo={profileInfo} />
     </div>
   );
 };
