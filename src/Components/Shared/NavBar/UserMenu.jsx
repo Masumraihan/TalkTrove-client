@@ -26,7 +26,7 @@ function UserMenu({ user,openModal }) {
           <Menu.Button className='inline-flex w-full justify-center rounded-full font-medium text-white hover:ring-2 ring-violet-200 transition-all hover:border-1'>
             <div className='tooltip tooltip-left' data-tip={user?.name}>
               <img
-                className='w-12 h-12 rounded-full'
+                className='w-12 h-12 rounded-xl'
                 src={user?.photo ? user?.photo : placeholderImg}
                 alt='profile'
                 referrerPolicy='no-referrer'

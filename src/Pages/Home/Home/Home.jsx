@@ -3,18 +3,14 @@ import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import StudentsFeedback from "../StudentsFeedback/StudentsFeedback";
 import HeroSection from "../../../Components/Home/HeroSection/HeroSection";
-import Banner from "../../../Components/Home/Banner/Banner";
 
 const Home = () => {
   return (
-    <div>
+    <div className="space-y-24">
       <Helmet>
         <title>TalkTrove | Home</title>
       </Helmet>
-      <div className='lg:hidden'>
-        <Banner />
-      </div>
-      <div className="hidden lg:block">
+      <div className="">
         <HeroSection />
       </div>
       <PopularClasses />

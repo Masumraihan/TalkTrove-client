@@ -7,7 +7,7 @@ import { AuthContext } from "../Providers/AuthProviders";
 const Main = () => {
   const {theme} = useContext(AuthContext)
   return (
-    <div data-theme={theme}>
+    <div data-theme={theme} className="font-[neueSwift]" >
       <NavBar />
       <div className='py-24 min-h-[calc(100vh-68px)]'>
         <Outlet />

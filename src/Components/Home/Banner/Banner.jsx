@@ -7,7 +7,7 @@ const Banner = () => {
   return (
     <Container>
       <div className='carousel rounded-md w-full h-[70vh]'>
-        <div id='slide1' className='carousel-item relative w-full '>
+        <div id='slide1' className='carousel-item relative w-full'>
           <div
             className='hero h-[70vh]'
             style={{

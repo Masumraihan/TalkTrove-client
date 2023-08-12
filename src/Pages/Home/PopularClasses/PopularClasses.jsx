@@ -14,16 +14,16 @@ const PopularClasses = () => {
   }, []);
   return (
     <Container>
-      <div className='py-20'>
+      <div className='w-full'>
         <h1 className='text-4xl pb-4 text-center font-bold'>
           Our Popular Classes
         </h1>
-        <div className='grid md:grid-cols-2 gap-7'>
+        <div className='grid md:grid-cols-2 gap-7 w-full'>
           {classes?.map((singleClass) => (
             <SingleClass key={singleClass._id} singleClass={singleClass} />
           ))}
         </div>
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center mt-4 w-full">
           <Link to="/allClasses">
             <Button>All Classes</Button>
           </Link>
