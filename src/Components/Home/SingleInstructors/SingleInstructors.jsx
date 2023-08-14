@@ -1,9 +1,10 @@
-import { Slide } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
 
 const SingleInstructors = ({ instructor }) => {
   const { photo, name, email, students, className } = instructor;
   return (
-    <Slide>
+    <div data-aos="fade-up"
+      data-aos-anchor-placement="bottom-bottom">
       <div className='card bg-base-200  hover:shadow-lg'>
         <div>
           <figure className='px-10 pt-8'>
@@ -16,11 +17,11 @@ const SingleInstructors = ({ instructor }) => {
             <p>Email: {email}</p>
           </div>
           <p className='border border-violet-300 rounded-md py-2 px-4'>
-           Total Students: {students}
+            Total Students: {students}
           </p>
         </div>
       </div>
-    </Slide>
+    </div>
   );
 };
 

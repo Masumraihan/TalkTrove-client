@@ -1,9 +1,9 @@
-import { Slide } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <Slide>
+    <Fade direction="down">
       <footer className='footer p-10 bg-base-200 text-base-content'>
         <div className='text-center'>
           <Link className='mx-auto' to='/'>
@@ -38,7 +38,7 @@ const Footer = () => {
           <a className='link link-hover'>Cookie policy</a>
         </div>
       </footer>
-    </Slide>
+    </Fade>
   );
 };
 

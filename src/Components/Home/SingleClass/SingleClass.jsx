@@ -4,7 +4,8 @@ const SingleClass = ({ singleClass }) => {
   const { image, className, price, name, seats, enrolledStudents } =
     singleClass;
   return (
-    <Zoom>
+    <div data-aos="fade-up"
+    data-aos-anchor-placement="bottom-bottom">
       <div className='hero rounded-xl py-8 hover:shadow-lg transition-shadow bg-base-200'>
         <div className='hero-content gap-4 flex-col lg:flex-row'>
           <img
@@ -26,7 +27,7 @@ const SingleClass = ({ singleClass }) => {
           </div>
         </div>
       </div>
-    </Zoom>
+    </div>
   );
 };
 
