@@ -6,7 +6,7 @@ const ActiveLink = ({ children, to }) => {
             <NavLink
                 to={to}
                 className={({ isActive }) =>
-                    isActive ? "tracking-wider hoverEffect"  : "hoverEffect"
+                    isActive ? "tracking-wider hoverEffect text-violet-500"  : "hoverEffect"
                 }
             >
                 {children}
