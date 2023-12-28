@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
+import CountUp from 'react-countup';
 
 const HeroSection = () => {
   const [dataCounts, setDataCounts] = useState({})
@@ -48,20 +49,19 @@ const HeroSection = () => {
                 <div className="grid grid-cols-3 gap-5" data-aos="fade-up" data-aos-delay="100"
                   data-aos-anchor-placement="bottom-bottom">
                   <div className="border-2 border-[#8B5CF6] rounded-lg text-center py-5">
-                    <h1 className="text-4xl font-bold">{dataCounts.userCount}</h1>
+                    <h1 className="text-4xl font-bold"><CountUp start={0} end={dataCounts.userCount} duration={2} /></h1>
                     <h1 className="text-xl font-bold">Students</h1>
                   </div>
                   <div className="border-2 border-[#8B5CF6] rounded-lg text-center py-5">
-                    <h1 className="text-4xl font-bold">{dataCounts.classCount}</h1>
+                    <h1 className="text-4xl font-bold"><CountUp start={0} end={dataCounts.classCount} duration={2} /></h1>
                     <h1 className="text-xl font-bold">Classes</h1>
                   </div>
                   <div className="border-2 border-[#8B5CF6] rounded-lg text-center py-5">
-                    <h1 className="text-4xl font-bold">{dataCounts.instructorsCount}</h1>
+                    <h1 className="text-4xl font-bold"> <CountUp start={0} end={dataCounts.instructorsCount} duration={2} /></h1>
                     <h1 className="text-xl font-bold">Instructors</h1>
                   </div>
                 </div>
-                <Link to="/allClasses" data-aos="fade-down"
-                  data-aos-anchor-placement="bottom-bottom" data-aos-delay="150">
+                <Link to="/allClasses">
                   <Button>
                     Go To Enroll
                   </Button>
