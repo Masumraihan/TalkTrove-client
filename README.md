@@ -40,5 +40,5 @@ server link: https://github.com/Masumraihan/TalkTrove-server
 Admin Email: admin2@gmail.com <br>
 Admin Pass: @@Masum##33
 <br><br>
-Instructor Email: instructorOne@gmail.com
+Instructor Email: instructorOne@gmail.com <br>
 Instructor Pass: @@Masum##33
